@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import logo from '../assets/KMCMAHEMANIPAL.png';
+import Header from './Header';
 import slide1 from '../assets/I1.png';
 import slide2 from '../assets/I2.png';
 import slide3 from '../assets/I3.jpeg';
@@ -20,6 +20,7 @@ const LandingPage = () => {
     }, [slides.length]);
 
     return (
+<<<<<<< HEAD
         <div style={{ minHeight: '100vh', backgroundColor: '#000', color: '#fff', overflow: 'hidden' }}>
             <div className="landing-container landing-content-wrapper">
                 {/* Logo */}
@@ -31,21 +32,31 @@ const LandingPage = () => {
                 </div>
 
                 {/* Content Grid */}
+=======
+        <div style={{ height: '100vh', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
+            <Header />
+            <div style={{ flex: 1, display: 'flex', flexDirection: 'row', overflow: 'hidden' }}>
+                {/* Left Partition */}
+>>>>>>> 245bd78c92cfde419f5ac0291f45217eb4c3f931
                 <div style={{
-                    display: 'grid',
-                    gridTemplateColumns: '1fr 1fr',
-                    gap: '40px',
-                    alignItems: 'center',
-                    flex: 1
-                }} className="content-grid">
-                    {/* Left Content */}
-                    <div style={{ zIndex: 10 }}>
+                    flex: 1,
+                    backgroundColor: '#ffffff',
+                    color: '#000000',
+                    padding: '60px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                    position: 'relative',
+                    zIndex: 10
+                }}>
+                    <div style={{ maxWidth: '600px', margin: '0 auto', width: '100%' }}>
                         <h1 className="hero-title" style={{
                             fontSize: '90px',
                             fontWeight: '600',
                             lineHeight: '1',
                             marginBottom: '30px',
-                            letterSpacing: '-2px'
+                            letterSpacing: '-2px',
+                            color: '#000'
                         }}>
                             Launching<br />soon
                         </h1>
@@ -54,7 +65,8 @@ const LandingPage = () => {
                             fontSize: '18px',
                             lineHeight: '1.5',
                             marginBottom: '40px',
-                            opacity: '0.95'
+                            opacity: '0.95',
+                            color: '#000'
                         }}>
                             Tech doesn't have to feel like a different language.<br />
                             We built Kasturba to make sure innovation<br />
@@ -65,32 +77,61 @@ const LandingPage = () => {
                         <button
                             style={{
                                 padding: '20px 50px',
-                                border: '2px solid #FFD93D',
-                                background: 'transparent',
+                                border: 'none',
+                                background: '#ff5722',
                                 color: '#fff',
                                 fontSize: '16px',
                                 fontWeight: '600',
                                 letterSpacing: '2px',
                                 cursor: 'pointer',
-                                transition: 'all 0.3s ease'
+                                transition: 'all 0.3s ease',
+                                borderRadius: '4px',
+                                boxShadow: '0 4px 14px rgba(255, 87, 34, 0.4)'
                             }}
                             className="contact-button"
                             onClick={() => navigate('/contact')}
                             onMouseEnter={(e) => {
-                                e.target.style.background = '#fff';
-                                e.target.style.color = '#000';
+                                e.target.style.background = '#f4511e';
+                                e.target.style.transform = 'translateY(-2px)';
                             }}
                             onMouseLeave={(e) => {
-                                e.target.style.background = 'transparent';
-                                e.target.style.color = '#fff';
+                                e.target.style.background = '#ff5722';
+                                e.target.style.transform = 'translateY(0)';
                             }}
                         >
                             CONTACT US
                         </button>
+                    </div>
+                </div>
 
-                        {/* Social Section */}
+                {/* Right Partition */}
+                <div className="right-content" style={{
+                    flex: 1,
+                    backgroundColor: '#000000',
+                    position: 'relative',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    overflow: 'hidden'
+                }}>
+                    <div className="gradient-blob blob-1"></div>
+                    <div className="gradient-blob blob-2"></div>
+                    <div className="gradient-blob blob-3"></div>
+
+                    {/* Image Circle with Slideshow */}
+                    <div
+                        className="image-container-animated"
+                        style={{
+                            position: 'relative',
+                            width: '400px',
+                            height: '400px',
+                            borderRadius: '30px', // Square with rounded corners
+                            overflow: 'hidden',
+                            zIndex: 5
+                        }}>
                         <div style={{
                             display: 'flex',
+<<<<<<< HEAD
                             alignItems: 'center',
                             gap: '30px',
                             gap: '30px',
@@ -183,6 +224,27 @@ const LandingPage = () => {
                                     ))}
                                 </div>
                             </div>
+=======
+                            width: '100%',
+                            height: '100%',
+                            transition: 'transform 0.5s ease-in-out',
+                            transform: `translateX(-${currentSlide * 100}%)`
+                        }}>
+                            {slides.map((slide, index) => (
+                                <img
+                                    key={index}
+                                    src={slide}
+                                    alt={`Slide ${index + 1}`}
+                                    className="slide-image"
+                                    style={{
+                                        width: '100%',
+                                        height: '100%',
+                                        objectFit: 'cover',
+                                        flexShrink: 0
+                                    }}
+                                />
+                            ))}
+>>>>>>> 245bd78c92cfde419f5ac0291f45217eb4c3f931
                         </div>
                     </div>
                 </div>

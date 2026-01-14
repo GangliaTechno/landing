@@ -3,6 +3,7 @@ import { Row, Col, Typography, Space, Divider } from 'antd';
 import { BankOutlined, TrophyOutlined, StarFilled } from '@ant-design/icons';
 
 import logo from '../assets/KMCMAHEMANIPAL.png';
+import './Header.css';
 
 const { Title, Text } = Typography;
 
@@ -14,7 +15,7 @@ const Header = () => {
             <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 20px' }}>
                 <Row align="middle" justify="space-between">
                     {/* Left: Logo Section */}
-                    <Col>
+                    <Col xs={24} md="auto" className="header-left">
                         <div style={{ display: 'flex', alignItems: 'center', gap: '15px', cursor: 'pointer' }} onClick={() => navigate('/')}>
                             <img src={logo} alt="Kasturba Medical College Logo" style={{ height: '60px', width: '60px', objectFit: 'cover', borderRadius: '50%' }} />
                             <div>
@@ -32,7 +33,7 @@ const Header = () => {
                     </Col>
 
                     {/* Right: Accolades Section */}
-                    <Col>
+                    <Col xs={24} md="auto" className="header-right">
                         <Space split={<Divider type="vertical" style={{ height: '40px', borderColor: '#ccc' }} />}>
                             {/* Institution of Eminence */}
                             <div style={{ textAlign: 'center' }}>
@@ -60,7 +61,9 @@ const Header = () => {
                     </Col>
                 </Row>
             </div>
-        </header>
+
+
+        </header >
     );
 };
 

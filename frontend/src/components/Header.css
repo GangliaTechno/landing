@@ -1,0 +1,33 @@
+@media (max-width: 768px) {
+    .header-left {
+        margin-bottom: 5px;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .header-right {
+        display: flex;
+        justify-content: center;
+        transform: scale(0.9);
+        /* Scale down accolades */
+    }
+
+    .header-left>div {
+        flex-direction: column;
+        gap: 2px !important;
+    }
+
+    .header-left img {
+        width: 35px !important;
+        height: 35px !important;
+    }
+
+    .header-left h3 {
+        font-size: 14px !important;
+    }
+
+    .header-left span {
+        font-size: 9px !important;
+    }
+}
