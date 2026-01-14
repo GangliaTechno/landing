@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from 'react';
-import { Form, Input, Select, Button, Row, Col, Typography, message } from 'antd';
+import { Form, Input, Select, Button, Row, Col, Typography, message, ConfigProvider } from 'antd';
 import { EnvironmentOutlined, MailOutlined } from '@ant-design/icons';
 import Header from './Header';
 import img1 from '../assets/I1.png';
@@ -25,7 +25,29 @@ const RegistrationForm = () => {
 
     const onFinish = (values) => {
         console.log('Received values from form: ', values);
-        message.success('Inquiry sent to aihealthcare.kmc@manipal.edu');
+
+        const subject = `New Inquiry: ${values.collaborationType} - ${values.company}`;
+        const body = `
+New Inquiry Received:
+
+Email: ${values.email}
+Phone: ${values.prefix || '+91'} ${values.phone}
+Company/Organization: ${values.company}
+Collaboration Type: ${values.collaborationType}
+
+Message:
+${values.comments}
+        `;
+
+        const mailtoLink = `mailto:aihealthcare.kmc@manipal.edu?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+        const link = document.createElement('a');
+        link.href = mailtoLink;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+
+        message.success('Opening your email client...');
     };
 
     const prefixSelector = (
@@ -55,9 +77,10 @@ const RegistrationForm = () => {
                                 width: '100%',
                                 height: '100%',
                                 backgroundImage: `url(${img})`,
-                                backgroundSize: 'cover',
+                                backgroundSize: '100% 100%',
+                                backgroundRepeat: 'no-repeat',
                                 backgroundPosition: 'center',
-                                opacity: currentImage === index ? 0.3 : 0,
+                                opacity: currentImage === index ? 1 : 0,
                                 transition: 'opacity 1.2s ease-in-out',
                                 zIndex: 0
                             }}
@@ -88,7 +111,7 @@ const RegistrationForm = () => {
                             fontFamily: "'Inter', sans-serif",
                             lineHeight: '1.6'
                         }}>
-                            Please fill in your details to register.
+                            Kindly provide your details for further communication
                         </Text>
 
                         <Form
@@ -173,27 +196,35 @@ const RegistrationForm = () => {
                                 rules={[{ required: true, message: 'Please select collaboration type!' }]}
                                 style={{ marginBottom: '20px' }}
                             >
-                                <Select
-                                    placeholder="Collaboration type*"
-                                    suffixIcon={<span style={{ fontSize: '12px', color: '#999' }}>▼</span>}
-                                    style={{ height: '52px' }}
-                                    className="custom-select-registration"
-                                >
-                                    <Option value="academic">Academic</Option>
-                                    <Option value="research">Research</Option>
-                                    <Option value="innovation">Innovation</Option>
-                                    <Option value="project">Project</Option>
-                                </Select>
+                                <ConfigProvider theme={{
+                                    token: {
+                                        colorPrimary: '#ff5722',
+                                        colorBorder: '#595959',
+                                        colorPrimaryHover: '#ff5722',
+                                    }
+                                }}>
+                                    <Select
+                                        placeholder="Collaboration type*"
+                                        suffixIcon={<span style={{ fontSize: '12px', color: '#999' }}>▼</span>}
+                                        style={{ height: '52px' }}
+                                        className="custom-select-registration"
+                                    >
+                                        <Option value="academic">Academic</Option>
+                                        <Option value="research">Research</Option>
+                                        <Option value="innovation">Innovation</Option>
+                                        <Option value="project">Project</Option>
+                                    </Select>
+                                </ConfigProvider>
                             </Form.Item>
 
                             {/* Comments / Message */}
                             <Form.Item
                                 name="comments"
-                                rules={[{ required: true, message: 'Please input your comments!' }]}
+                                rules={[{ required: false }]}
                                 style={{ marginBottom: '24px' }}
                             >
                                 <Input.TextArea
-                                    placeholder="Comments / message*"
+                                    placeholder="Comments / message"
                                     rows={4}
                                     style={{
                                         borderRadius: '6px',

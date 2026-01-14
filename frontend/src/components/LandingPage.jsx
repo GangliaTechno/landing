@@ -54,16 +54,15 @@ const LandingPage = () => {
                         </h1>
 
                         <div className="description" style={{
-                            fontSize: '18px',
-                            lineHeight: '1.5',
+                            fontSize: '15px',
+                            lineHeight: '1.6',
                             marginBottom: '40px',
-                            opacity: '0.95',
-                            color: '#000'
+                            opacity: '0.9',
+                            color: '#000',
+                            maxWidth: '650px',
+                            textAlign: 'justify'
                         }}>
-                            The Department of AI in Healthcare at KMC Manipal is dedicated to<br />
-                            integrating artificial intelligence with clinical medicine and education.<br />
-                            As India's first such department, we advance patient care through innovation<br />
-                            and prepare healthcare professionals for the future of digital medicine.
+                            The Department of Artificial Intelligence (AI) in Healthcare at Kasturba Medical College (KMC), Manipal is a newly established academic and strategic unit dedicated to integrating artificial intelligence with clinical medicine and medical education. Inaugurated in August 2025, it is the first department of its kind in a medical college in India, focusing on advancing AI-driven clinical decision-making, diagnostics, and patient care through research and real-world healthcare solutions, while promoting education, interdisciplinary collaboration, and responsible AI adoption to prepare healthcare professionals for the future of digital medicine.
                         </div>
 
                         <button
@@ -137,7 +136,7 @@ const LandingPage = () => {
                                     style={{
                                         width: '100%',
                                         height: '100%',
-                                        objectFit: 'cover',
+                                        objectFit: 'fill',
                                         flexShrink: 0
                                     }}
                                 />

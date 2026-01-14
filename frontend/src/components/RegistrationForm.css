@@ -59,11 +59,17 @@
     background: #fff !important;
 }
 
-.custom-select-registration:hover .ant-select-selector {
+/* Active/Focused state for Select toggled by Ant Design */
+.custom-select-registration:hover .ant-select-selector,
+.custom-select-registration.ant-select-focused .ant-select-selector,
+.custom-select-registration.ant-select-open .ant-select-selector {
     border-color: #ff5722 !important;
+    box-shadow: 0 0 0 2px rgba(255, 87, 34, 0.1) !important;
 }
 
-.custom-select-registration.ant-select-focused .ant-select-selector {
+/* Ensure no blue shadow persists */
+.custom-select-registration .ant-select-selector:focus,
+.custom-select-registration .ant-select-selector:active {
     border-color: #ff5722 !important;
     box-shadow: 0 0 0 2px rgba(255, 87, 34, 0.1) !important;
 }
@@ -74,7 +80,7 @@
 
 .custom-select-registration .ant-select-selection-placeholder {
     line-height: 36px !important;
-    color: #666 !important;
+    color: #000000 !important;
     font-weight: 500 !important;
     font-family: 'Inter', sans-serif !important;
 }

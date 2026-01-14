@@ -243,3 +243,27 @@
         flex-wrap: wrap;
     }
 }
+
+/* Border Animation for Image Container */
+.image-container-animated::after {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    right: -15px;
+    bottom: -15px;
+    border-radius: 45px;
+    border: 4px dotted #ff6600;
+    z-index: -1;
+    animation: rotate-border 20s linear infinite;
+}
+
+@keyframes rotate-border {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
