@@ -4,6 +4,7 @@ import Header from './Header';
 import img1 from '../assets/I1.png';
 import img2 from '../assets/I2.png';
 import img3 from '../assets/I3.jpeg';
+import './RegistrationForm.css';
 
 const { Title, Text } = Typography;
 const { Option } = Select;
@@ -36,20 +37,9 @@ const RegistrationForm = () => {
     return (
         <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
             <Header />
-            <Row style={{ flex: 1, height: 'calc(100vh - 64px)' }}>
+            <Row className="registration-row">
                 {/* Left Column - Branding/Marketing with Image Slideshow */}
-                <Col xs={24} md={10} style={{
-                    position: 'relative',
-                    backgroundColor: '#002140',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    color: '#fff',
-                    padding: '3rem',
-                    overflow: 'hidden',
-                    minHeight: '500px'
-                }}>
+                <Col xs={24} md={10} className="marketing-col">
                     {/* Background Image Loop */}
                     {images.map((img, index) => (
                         <div
@@ -74,14 +64,7 @@ const RegistrationForm = () => {
                 </Col>
 
                 {/* Right Column - Registration Form */}
-                <Col xs={24} md={14} style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'center',
-                    padding: '3rem 2.5rem',
-                    backgroundColor: '#ffffff',
-                    overflowY: 'auto'
-                }}>
+                <Col xs={24} md={14} className="form-col">
                     <div style={{ maxWidth: '550px', margin: '0 auto', width: '100%' }}>
                         <Title level={2} style={{
                             marginBottom: '0.5rem',
@@ -251,124 +234,7 @@ const RegistrationForm = () => {
                 </Col>
             </Row>
 
-            <style jsx>{`
-                @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
-                .custom-select-registration .ant-select-selector {
-                    height: 52px !important;
-                    border-radius: 6px !important;
-                    padding: 8px 14px !important;
-                    display: flex !important;
-                    align-items: center !important;
-                    font-size: 15px !important;
-                    border: 1.5px solid #595959 !important;
-                    font-family: 'Inter', sans-serif !important;
-                    font-weight: 500 !important;
-                    transition: all 0.3s ease !important;
-                    background: #fff !important;
-                }
-
-                .custom-select-registration:hover .ant-select-selector {
-                    border-color: #ff5722 !important;
-                }
-
-                .custom-select-registration.ant-select-focused .ant-select-selector {
-                    border-color: #ff5722 !important;
-                    box-shadow: 0 0 0 2px rgba(255, 87, 34, 0.1) !important;
-                }
-
-                .custom-select-registration .ant-select-arrow {
-                    color: #666 !important;
-                }
-                
-                .custom-select-registration .ant-select-selection-placeholder {
-                    line-height: 36px !important;
-                    color: #666 !important;
-                    font-weight: 500 !important;
-                    font-family: 'Inter', sans-serif !important;
-                }
-
-                .custom-select-registration .ant-select-selection-item {
-                    line-height: 36px !important;
-                    color: #1a1a1a !important;
-                    font-weight: 500 !important;
-                }
-
-                .custom-input::placeholder,
-                .custom-input-with-addon input::placeholder,
-                .ant-input::placeholder {
-                    color: #666 !important;
-                    font-weight: 500 !important;
-                    opacity: 1 !important;
-                    font-family: 'Inter', sans-serif !important;
-                }
-
-                .custom-input:hover,
-                .custom-input:focus {
-                    border-color: #ff5722 !important;
-                }
-
-                .custom-input:focus {
-                    box-shadow: 0 0 0 2px rgba(255, 87, 34, 0.1) !important;
-                }
-
-                .ant-input-group-addon {
-                    border: 1.5px solid #595959 !important;
-                    border-right: 0 !important;
-                    border-radius: 6px 0 0 6px !important;
-                    background: #f5f5f5 !important;
-                }
-
-                .ant-input-group-addon .ant-select-disabled .ant-select-selector {
-                    background: #f5f5f5 !important;
-                    color: #1a1a1a !important;
-                    border: none !important;
-                }
-
-                .ant-input-group-addon .ant-select-arrow {
-                    display: none !important;
-                }
-
-                .custom-input-with-addon .ant-input {
-                    border: 1.5px solid #595959 !important;
-                    border-left: 0 !important;
-                    font-family: 'Inter', sans-serif !important;
-                    font-weight: 500 !important;
-                }
-
-                .custom-input-with-addon:hover .ant-input,
-                .custom-input-with-addon:hover .ant-input-group-addon {
-                    border-color: #ff5722 !important;
-                }
-
-                .ant-input-group-addon .ant-select-selector {
-                    border: none !important;
-                    background: transparent !important;
-                    font-family: 'Inter', sans-serif !important;
-                }
-
-                .submit-button:hover {
-                    background-color: #f4511e !important;
-                    border-color: #f4511e !important;
-                    box-shadow: 0 4px 12px rgba(255, 87, 34, 0.35) !important;
-                    transform: translateY(-1px);
-                }
-
-                .submit-button:active {
-                    transform: translateY(0);
-                }
-
-                /* Form validation styling */
-                .ant-form-item-has-error .ant-input,
-                .ant-form-item-has-error .ant-select-selector {
-                    border-color: #ff4d4f !important;
-                }
-
-                .ant-form-item-explain-error {
-                    font-family: 'Inter', sans-serif !important;
-                    font-size: 13px !important;
-                }
-            `}</style>
         </div>
     );
 };

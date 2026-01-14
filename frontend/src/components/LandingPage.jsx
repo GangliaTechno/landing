@@ -20,8 +20,8 @@ const LandingPage = () => {
     }, [slides.length]);
 
     return (
-        <div style={{ height: '100vh', backgroundColor: '#000', color: '#fff', overflow: 'hidden' }}>
-            <div style={{ padding: '30px 60px', height: '100%', display: 'flex', flexDirection: 'column' }} className="landing-container">
+        <div style={{ minHeight: '100vh', backgroundColor: '#000', color: '#fff', overflow: 'hidden' }}>
+            <div className="landing-container landing-content-wrapper">
                 {/* Logo */}
                 <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '20px', flexShrink: 0 }}>
                     <div style={{ width: '60px', height: '60px', borderRadius: '50%', overflow: 'hidden', backgroundColor: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -134,37 +134,54 @@ const LandingPage = () => {
                         <div className="gradient-blob blob-3"></div>
 
                         {/* Image Circle with Slideshow */}
-                        <div
-                            className="image-container-animated"
+                        {/* Animated Wrapper for Ring and Image */}
+                        <div className="animation-wrapper"
                             style={{
                                 position: 'absolute',
-                                width: '400px',
-                                height: '400px',
-                                borderRadius: '50%',
-                                overflow: 'hidden',
+                                width: '420px',
+                                height: '420px',
                                 top: '50%',
                                 right: 'auto',
-                                zIndex: 5
+                                zIndex: 5,
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center'
                             }}>
-                            <div style={{ position: 'relative', width: '100%', height: '100%' }}>
-                                {slides.map((slide, index) => (
-                                    <img
-                                        key={index}
-                                        src={slide}
-                                        alt={`Slide ${index + 1}`}
-                                        className={`slide-image ${index === currentSlide ? 'active' : ''}`}
-                                        style={{
-                                            position: 'absolute',
-                                            top: 0,
-                                            left: 0,
-                                            width: '100%',
-                                            height: '100%',
-                                            objectFit: 'cover',
-                                            opacity: index === currentSlide ? 1 : 0,
-                                            transition: 'opacity 1s ease-in-out'
-                                        }}
-                                    />
-                                ))}
+
+                            {/* Colorful Ring */}
+                            <div className="color-ring"></div>
+
+                            {/* Image Container */}
+                            <div
+                                className="image-container-animated"
+                                style={{
+                                    width: '400px',
+                                    height: '400px',
+                                    borderRadius: '50%',
+                                    overflow: 'hidden',
+                                    position: 'relative',
+                                    zIndex: 2
+                                }}>
+                                <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+                                    {slides.map((slide, index) => (
+                                        <img
+                                            key={index}
+                                            src={slide}
+                                            alt={`Slide ${index + 1}`}
+                                            className={`slide-image ${index === currentSlide ? 'active' : ''}`}
+                                            style={{
+                                                position: 'absolute',
+                                                top: 0,
+                                                left: 0,
+                                                width: '100%',
+                                                height: '100%',
+                                                objectFit: 'cover',
+                                                opacity: index === currentSlide ? 1 : 0,
+                                                transition: 'opacity 1s ease-in-out'
+                                            }}
+                                        />
+                                    ))}
+                                </div>
                             </div>
                         </div>
                     </div>

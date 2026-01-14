@@ -61,11 +61,21 @@
 
     0%,
     100% {
-        transform: translateY(-50%) rotate(-2deg);
+        transform: rotate(-2deg);
     }
 
     50% {
-        transform: translateY(-50%) rotate(2deg);
+        transform: rotate(2deg);
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
     }
 }
 
@@ -140,18 +150,40 @@
     pointer-events: none;
 }
 
+.animation-wrapper {
+    animation: float 7s ease-in-out infinite;
+}
+
+.color-ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: conic-gradient(from 0deg,
+            #FFD93D,
+            #FF6B6B,
+            #4ECDC4,
+            #1A535C,
+            #9f56e3,
+            #FFD93D);
+    animation: spin 10s linear infinite;
+    filter: blur(20px);
+    opacity: 0.8;
+}
+
 .image-container-animated {
     animation:
-        float 7s ease-in-out infinite,
         glow-pulse 3.5s ease-in-out infinite,
         rotate-subtle 9s ease-in-out infinite;
     transition: all 0.4s ease;
     position: relative;
-    border: 3px solid rgba(255, 255, 255, 0.2);
+    position: relative;
     backdrop-filter: blur(5px);
     box-shadow:
-        0 0 0 1px rgba(95, 221, 192, 0.3),
-        inset 0 0 20px rgba(255, 255, 255, 0.1);
+        0 0 40px rgba(95, 221, 192, 0.2),
+        inset 0 0 40px rgba(255, 255, 255, 0.1);
+    -webkit-mask-image: radial-gradient(circle at center, black 60%, transparent 100%);
+    mask-image: radial-gradient(circle at center, black 60%, transparent 100%);
 }
 
 /* Add a subtle gradient overlay to blend with background */
@@ -180,11 +212,21 @@
 .image-container-animated:hover {
     animation-play-state: paused;
     transform: translateY(-50%) scale(1.08);
-    filter: drop-shadow(0 0 60px rgba(95, 221, 192, 0.9)) drop-shadow(0 0 80px rgba(200, 245, 96, 0.7)) drop-shadow(0 20px 60px rgba(0, 0, 0, 0.4));
-    border-color: rgba(95, 221, 192, 0.5);
+    box-shadow:
+        0 0 60px rgba(95, 221, 192, 0.6),
+        inset 0 0 60px rgba(255, 255, 255, 0.2);
+    -webkit-mask-image: radial-gradient(circle at center, black 70%, transparent 100%);
+    mask-image: radial-gradient(circle at center, black 70%, transparent 100%);
 }
 
 /* Responsive Design */
+.landing-content-wrapper {
+    padding: 30px 60px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
 @media (max-width: 1200px) {
     .content-grid {
         grid-template-columns: 1fr !important;
@@ -222,8 +264,15 @@
 }
 
 @media (max-width: 768px) {
+    .landing-content-wrapper {
+        padding: 20px !important;
+        height: auto !important;
+        min-height: 100vh;
+    }
+
     .landing-container {
-        padding: 40px !important;
+        padding: 0 !important;
+        /* Reset old padding rule if any */
     }
 
     .hero-title {
