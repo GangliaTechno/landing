@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { Form, Input, Select, Button, Row, Col, Typography, message } from 'antd';
 import { EnvironmentOutlined, MailOutlined } from '@ant-design/icons';
@@ -38,11 +39,7 @@ const RegistrationForm = () => {
     return (
         <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
             <Header />
-<<<<<<< HEAD
             <Row className="registration-row">
-=======
-            <Row style={{ flex: 1 }}>
->>>>>>> 245bd78c92cfde419f5ac0291f45217eb4c3f931
                 {/* Left Column - Branding/Marketing with Image Slideshow */}
                 <Col xs={24} md={10} className="marketing-col">
                     {/* Background Image Loop */}
@@ -69,17 +66,7 @@ const RegistrationForm = () => {
                 </Col>
 
                 {/* Right Column - Registration Form */}
-<<<<<<< HEAD
                 <Col xs={24} md={14} className="form-col">
-=======
-                <Col xs={24} md={14} style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'center',
-                    padding: '3rem 2.5rem',
-                    backgroundColor: '#ffffff'
-                }}>
->>>>>>> 245bd78c92cfde419f5ac0291f45217eb4c3f931
                     <div style={{ maxWidth: '550px', margin: '0 auto', width: '100%' }}>
                         <Title level={2} style={{
                             marginBottom: '0.5rem',
@@ -251,19 +238,17 @@ const RegistrationForm = () => {
                 </Col>
             </Row>
 
-<<<<<<< HEAD
-=======
             {/* Global Footer */}
-            <div style={{ backgroundColor: '#ff5722', padding: '50px 20px', color: '#000', textAlign: 'center', width: '100%' }}>
-                <Title level={4} style={{ color: '#000', marginBottom: '30px', fontWeight: 'bold' }}>Contact info:</Title>
+            <div style={{ backgroundColor: '#ff7043', padding: '35px 20px', color: '#000', textAlign: 'center', width: '100%' }}>
+                <Title level={4} style={{ color: '#000', marginBottom: '20px', fontWeight: 'bold', fontSize: '18px' }}>Contact info:</Title>
 
-                <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '60px', maxWidth: '1000px', margin: '0 auto' }}>
+                <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '50px', maxWidth: '900px', margin: '0 auto' }}>
                     {/* Address */}
-                    <div style={{ display: 'flex', textAlign: 'left', gap: '15px' }}>
-                        <EnvironmentOutlined style={{ fontSize: '28px', color: '#000' }} />
+                    <div style={{ display: 'flex', textAlign: 'left', gap: '12px' }}>
+                        <EnvironmentOutlined style={{ fontSize: '24px', color: '#000' }} />
                         <div>
-                            <Text strong style={{ display: 'block', fontSize: '16px', color: '#000', marginBottom: '5px' }}>Address:</Text>
-                            <Text style={{ color: '#000', fontSize: '15px', lineHeight: '1.6' }}>
+                            <Text strong style={{ display: 'block', fontSize: '15px', color: '#000', marginBottom: '4px' }}>Address:</Text>
+                            <Text style={{ color: '#000', fontSize: '14px', lineHeight: '1.5' }}>
                                 Kasturba Medical College<br />
                                 Tiger Circle Road, Madhav Nagar, Eshwar Nagar<br />
                                 Manipal – 576104, Karnataka, India
@@ -272,24 +257,20 @@ const RegistrationForm = () => {
                     </div>
 
                     {/* Email */}
-                    <div style={{ display: 'flex', textAlign: 'left', gap: '15px' }}>
-                        <MailOutlined style={{ fontSize: '28px', color: '#000' }} />
+                    <div style={{ display: 'flex', textAlign: 'left', gap: '12px' }}>
+                        <MailOutlined style={{ fontSize: '24px', color: '#000' }} />
                         <div>
-                            <Text strong style={{ display: 'block', fontSize: '16px', color: '#000', marginBottom: '5px' }}>Email ID's:</Text>
-                            <Text style={{ display: 'block', color: '#000', fontSize: '15px', marginBottom: '2px' }}>
+                            <Text strong style={{ display: 'block', fontSize: '15px', color: '#000', marginBottom: '4px' }}>Email ID's:</Text>
+                            <Text style={{ display: 'block', color: '#000', fontSize: '14px', marginBottom: '2px' }}>
                                 dpr.mu@manipal.edu
                             </Text>
-                            <Text style={{ display: 'block', color: '#000', fontSize: '15px' }}>
+                            <Text style={{ display: 'block', color: '#000', fontSize: '14px' }}>
                                 aihealthcare.kmc@manipal.edu
                             </Text>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <style jsx>{`
-                @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
->>>>>>> 245bd78c92cfde419f5ac0291f45217eb4c3f931
 
         </div>
     );

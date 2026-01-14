@@ -1,7 +1,5 @@
 import { useNavigate } from 'react-router-dom';
 import { Row, Col, Typography, Space, Divider } from 'antd';
-import { BankOutlined, TrophyOutlined, StarFilled } from '@ant-design/icons';
-
 import logo from '../assets/KMCMAHEMANIPAL.png';
 import './Header.css';
 
@@ -11,21 +9,47 @@ const Header = () => {
     const navigate = useNavigate();
 
     return (
-        <header className="header" style={{ background: '#fff', borderBottom: '1px solid #f0f0f0', padding: '10px 0', height: 'auto' }}>
-            <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 20px' }}>
-                <Row align="middle" justify="space-between">
+        <header className="header" style={{ background: '#fff', borderBottom: '1px solid #e8e8e8', padding: '15px 0' }}>
+            <div className="container" style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 40px' }}>
+                <Row align="middle" justify="space-between" gutter={[16, 0]}>
                     {/* Left: Logo Section */}
-                    <Col xs={24} md="auto" className="header-left">
+                    <Col flex="auto">
                         <div style={{ display: 'flex', alignItems: 'center', gap: '15px', cursor: 'pointer' }} onClick={() => navigate('/')}>
-                            <img src={logo} alt="Kasturba Medical College Logo" style={{ height: '60px', width: '60px', objectFit: 'cover', borderRadius: '50%' }} />
-                            <div>
-                                <Title level={3} style={{ margin: 0, lineHeight: 1.2, fontFamily: 'Outfit, sans-serif', letterSpacing: '0.5px', textTransform: 'uppercase', color: '#d32f2f' }}>
-                                    Kasturba Medical College
+                            <img
+                                src={logo}
+                                alt="Kasturba Medical College Logo"
+                                style={{
+                                    height: '55px',
+                                    width: '55px',
+                                    objectFit: 'contain'
+                                }}
+                            />
+                            <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                                <Title level={4} style={{
+                                    margin: 0,
+                                    lineHeight: '1.2',
+                                    fontFamily: 'Inter, sans-serif',
+                                    fontWeight: '700',
+                                    fontSize: '20px',
+                                    color: '#c62828',
+                                    letterSpacing: '0.3px'
+                                }}>
+                                    KASTURBA MEDICAL COLLEGE
                                 </Title>
-                                <Text style={{ fontSize: '12px', display: 'block', letterSpacing: '2px', color: '#666', textTransform: 'uppercase', fontWeight: 600 }}>
-                                    Manipal Academy of Higher Education
+                                <Text style={{
+                                    fontSize: '11px',
+                                    letterSpacing: '1.5px',
+                                    color: '#666',
+                                    fontWeight: '500',
+                                    marginTop: '2px'
+                                }}>
+                                    MANIPAL ACADEMY OF HIGHER EDUCATION
                                 </Text>
-                                <Text type="secondary" italic style={{ fontSize: '10px' }}>
+                                <Text italic style={{
+                                    fontSize: '9px',
+                                    color: '#999',
+                                    marginTop: '1px'
+                                }}>
                                     (Institution of Eminence Deemed to be University)
                                 </Text>
                             </div>
@@ -33,37 +57,116 @@ const Header = () => {
                     </Col>
 
                     {/* Right: Accolades Section */}
-                    <Col xs={24} md="auto" className="header-right">
-                        <Space split={<Divider type="vertical" style={{ height: '40px', borderColor: '#ccc' }} />}>
+                    <Col flex="none">
+                        <Space
+                            size="middle"
+                            split={<Divider type="vertical" style={{ height: '50px', borderColor: '#d9d9d9', margin: '0 20px' }} />}
+                            align="center"
+                        >
                             {/* Institution of Eminence */}
-                            <div style={{ textAlign: 'center' }}>
-                                <Text style={{ display: 'block', fontSize: '10px', fontWeight: 'bold', color: '#555', lineHeight: 1 }}>INSTITUTION OF</Text>
-                                <div style={{ background: '#f57c00', color: '#fff', padding: '2px 8px', fontSize: '12px', fontWeight: 'bold' }}>
+                            <div style={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                height: '50px'
+                            }}>
+                                <Text style={{
+                                    fontSize: '9px',
+                                    fontWeight: '600',
+                                    color: '#333',
+                                    lineHeight: 1,
+                                    letterSpacing: '0.5px'
+                                }}>
+                                    INSTITUTION OF
+                                </Text>
+                                <div style={{
+                                    background: '#ff6f00',
+                                    color: '#fff',
+                                    padding: '3px 12px',
+                                    fontSize: '11px',
+                                    fontWeight: 'bold',
+                                    marginTop: '3px',
+                                    letterSpacing: '0.5px'
+                                }}>
                                     EMINENCE
                                 </div>
                             </div>
 
                             {/* NAAC Badge */}
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
-                                <div style={{ border: '2px solid #666', borderRadius: '50%', width: '40px', height: '40px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-                                    <Text style={{ fontSize: '8px', fontWeight: 'bold' }}>NAAC</Text>
-                                    <Text style={{ fontSize: '12px', fontWeight: 'bold', lineHeight: 1, color: '#f57c00' }}>A++</Text>
-                                    <Text style={{ fontSize: '6px' }}>GRADE</Text>
+                            <div style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                height: '50px'
+                            }}>
+                                <div style={{
+                                    border: '2px solid #333',
+                                    borderRadius: '50%',
+                                    width: '50px',
+                                    height: '50px',
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    alignItems: 'center',
+                                    justifyContent: 'center'
+                                }}>
+                                    <Text style={{
+                                        fontSize: '9px',
+                                        fontWeight: 'bold',
+                                        lineHeight: 1,
+                                        color: '#333'
+                                    }}>
+                                        NAAC
+                                    </Text>
+                                    <Text style={{
+                                        fontSize: '16px',
+                                        fontWeight: 'bold',
+                                        lineHeight: 1.1,
+                                        color: '#333',
+                                        margin: '2px 0'
+                                    }}>
+                                        A++
+                                    </Text>
+                                    <Text style={{
+                                        fontSize: '7px',
+                                        color: '#666',
+                                        lineHeight: 1
+                                    }}>
+                                        GRADE
+                                    </Text>
                                 </div>
                             </div>
 
                             {/* NIRF Badge */}
-                            <div style={{ textAlign: 'left' }}>
-                                <Text style={{ fontSize: '18px', fontWeight: 'bold', color: '#333' }}>NIRF</Text>
-                                <Text style={{ fontSize: '18px', fontWeight: 'bold', color: '#f57c00', marginLeft: '2px' }}>#3</Text>
+                            <div style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                height: '50px'
+                            }}>
+                                <Text style={{
+                                    fontSize: '22px',
+                                    fontWeight: 'bold',
+                                    color: '#333',
+                                    lineHeight: 1
+                                }}>
+                                    NIRF
+                                </Text>
+                                <Text style={{
+                                    fontSize: '22px',
+                                    fontWeight: 'bold',
+                                    color: '#ff6f00',
+                                    marginLeft: '4px',
+                                    lineHeight: 1
+                                }}>
+                                    #3
+                                </Text>
                             </div>
                         </Space>
                     </Col>
                 </Row>
             </div>
-
-
-        </header >
+        </header>
     );
 };
 
