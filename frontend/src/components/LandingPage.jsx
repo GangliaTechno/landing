@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from './Header';
-import slide1 from '../assets/I1.png';
+import Footer from './Footer';
+import slide1 from '../assets/I1.jpeg';
 import slide2 from '../assets/I2.png';
-import slide3 from '../assets/I3.jpeg';
+import slide3 from '../assets/l3.png';
 import './LandingPage.css';
 
 const LandingPage = () => {
@@ -21,15 +22,15 @@ const LandingPage = () => {
 
     return (
         <div style={{
-            height: '100vh',
+            minHeight: '100vh',
             display: 'flex',
             flexDirection: 'column',
-            overflow: 'hidden',
+            overflowX: 'hidden',
             background: 'linear-gradient(to right, #ffffff 0%, #ffffff 30%, #ff6600 100%)'
         }}>
             <Header />
-            <div style={{ flex: 1, display: 'flex', flexDirection: 'row', overflow: 'hidden' }}>
-                {/* Left Partition */}
+            {/* Left Partition */}
+            <div style={{ flex: 1, display: 'flex', flexDirection: 'row', minHeight: 'calc(100vh - 80px)' }}>
                 <div style={{
                     flex: 1,
                     backgroundColor: 'transparent',
@@ -145,6 +146,7 @@ const LandingPage = () => {
                     </div>
                 </div>
             </div>
+            <Footer style={{ background: '#fff' }} />
         </div>
     );
 };
