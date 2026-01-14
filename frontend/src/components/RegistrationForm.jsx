@@ -29,11 +29,13 @@ const RegistrationForm = () => {
     };
 
     const prefixSelector = (
-        <Form.Item name="prefix" noStyle initialValue="+91">
-            <Select style={{ width: 70 }} disabled>
-                <Option value="+91">+91</Option>
-            </Select>
-        </Form.Item>
+        <span style={{
+            fontSize: '15px',
+            fontWeight: '500',
+            color: '#1a1a1a',
+            padding: '0 4px',
+            fontFamily: "'Inter', sans-serif"
+        }}>+91</span>
     );
 
     return (
@@ -239,7 +241,7 @@ const RegistrationForm = () => {
             </Row>
 
             {/* Global Footer */}
-            <div style={{ backgroundColor: '#ff7043', padding: '35px 20px', color: '#000', textAlign: 'center', width: '100%' }}>
+            <div style={{ background: 'linear-gradient(to right, #ffffff 0%, #ffffff 30%, #ff6600 100%)', padding: '35px 20px', color: '#000', textAlign: 'center', width: '100%' }}>
                 <Title level={4} style={{ color: '#000', marginBottom: '20px', fontWeight: 'bold', fontSize: '18px' }}>Contact info:</Title>
 
                 <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '50px', maxWidth: '900px', margin: '0 auto' }}>

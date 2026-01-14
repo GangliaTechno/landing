@@ -10,10 +10,10 @@ const Header = () => {
 
     return (
         <header className="header" style={{ background: '#fff', borderBottom: '1px solid #e8e8e8', padding: '15px 0' }}>
-            <div className="container" style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 40px' }}>
-                <Row align="middle" justify="space-between" gutter={[16, 0]}>
+            <div className="container" style={{ width: '100%', maxWidth: '100%', padding: '0 40px' }}>
+                <Row align="middle" justify="space-between" gutter={[16, 0]} wrap={false}>
                     {/* Left: Logo Section */}
-                    <Col flex="auto">
+                    <Col flex="none">
                         <div style={{ display: 'flex', alignItems: 'center', gap: '15px', cursor: 'pointer' }} onClick={() => navigate('/')}>
                             <img
                                 src={logo}
@@ -32,9 +32,10 @@ const Header = () => {
                                     fontWeight: '700',
                                     fontSize: '20px',
                                     color: '#c62828',
-                                    letterSpacing: '0.3px'
+                                    letterSpacing: '0.3px',
+                                    whiteSpace: 'nowrap'
                                 }}>
-                                    KASTURBA MEDICAL COLLEGE
+                                    DEPARTMENT OF ARTIFICIAL INTELLIGENCE IN HEALTHCARE
                                 </Title>
                                 <Text style={{
                                     fontSize: '11px',
@@ -43,21 +44,21 @@ const Header = () => {
                                     fontWeight: '500',
                                     marginTop: '2px'
                                 }}>
-                                    MANIPAL ACADEMY OF HIGHER EDUCATION
+                                    KASTURBA MEDICAL COLLEGE
                                 </Text>
                                 <Text italic style={{
                                     fontSize: '9px',
                                     color: '#999',
                                     marginTop: '1px'
                                 }}>
-                                    (Institution of Eminence Deemed to be University)
+                                    (A constituent unit of MAHE, Manipal)
                                 </Text>
                             </div>
                         </div>
                     </Col>
 
                     {/* Right: Accolades Section */}
-                    <Col flex="none">
+                    <Col flex="none" style={{ marginLeft: 'auto' }}>
                         <Space
                             size="middle"
                             split={<Divider type="vertical" style={{ height: '50px', borderColor: '#d9d9d9', margin: '0 20px' }} />}

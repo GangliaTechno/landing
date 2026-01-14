@@ -25,7 +25,7 @@ const LandingPage = () => {
             display: 'flex',
             flexDirection: 'column',
             overflow: 'hidden',
-            background: 'linear-gradient(to right, #ffffff 0%, #ffffff 45%, #ff6600 55%, #ff6600 100%)'
+            background: 'linear-gradient(to right, #ffffff 0%, #ffffff 30%, #ff6600 100%)'
         }}>
             <Header />
             <div style={{ flex: 1, display: 'flex', flexDirection: 'row', overflow: 'hidden' }}>
@@ -115,8 +115,8 @@ const LandingPage = () => {
                         className="image-container-animated"
                         style={{
                             position: 'relative',
-                            width: '400px',
-                            height: '400px',
+                            width: '500px',
+                            height: '500px',
                             borderRadius: '30px',
                             overflow: 'hidden',
                             zIndex: 5
