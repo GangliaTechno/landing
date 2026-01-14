@@ -144,9 +144,7 @@ const LandingPage = () => {
                                 overflow: 'hidden',
                                 top: '50%',
                                 right: 'auto',
-                                zIndex: 5,
-                                background: '#fff',
-                                boxShadow: '0 20px 50px rgba(0,0,0,0.3)'
+                                zIndex: 5
                             }}>
                             <div style={{ position: 'relative', width: '100%', height: '100%' }}>
                                 {slides.map((slide, index) => (
