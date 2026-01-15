@@ -133,23 +133,26 @@ const LandingPage = () => {
                 start: 'top 75%',
                 end: 'top 25%',
                 toggleActions: 'play none none reverse',
-                scrub: 2.5,
+                scrub: 1, // Restoring scrub to match Section 2
                 markers: false
             }
         });
+
+        // Ensure elements are initially hidden for the animation
+        gsap.set([video, textWrapper], { autoAlpha: 0 });
 
         // Animate video from left (mirroring Section 2's image animation)
         tl.fromTo(video,
             {
                 x: -60,
                 y: 40,
-                opacity: 0,
+                autoAlpha: 0,
                 scale: 0.95
             },
             {
                 x: 0,
                 y: 0,
-                opacity: 1,
+                autoAlpha: 1,
                 scale: 1,
                 duration: 1,
                 ease: 'power2.out'
@@ -158,15 +161,15 @@ const LandingPage = () => {
             // Animate text from right (mirroring Section 2's text animation)
             .fromTo(textWrapper,
                 {
-                    x: 60,
+                    x: 60, // Match Section 2's offset
                     y: 40,
-                    opacity: 0
+                    autoAlpha: 0
                 },
                 {
                     x: 0,
                     y: 0,
-                    opacity: 1,
-                    duration: 1,
+                    autoAlpha: 1,
+                    duration: 1, // Match Section 2's duration
                     ease: 'power2.out'
                 },
                 '-=0.7'

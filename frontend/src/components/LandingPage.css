@@ -205,7 +205,7 @@ body {
 
 /* Cinematic Section Styles */
 .cinematic-section {
-    height: 100vh;
+    height: 85vh;
     width: 100%;
     display: flex;
     position: relative;
@@ -249,7 +249,6 @@ body {
     background: #fff;
     position: relative;
     z-index: 3;
-    opacity: 0;
     transform: translateX(40px);
 }
 
