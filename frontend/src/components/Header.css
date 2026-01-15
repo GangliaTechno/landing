@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .header .container {
+        padding: 0 20px !important;
+    }
+
+    .header .ant-row {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .header .ant-col {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .header img {
+        width: 45px !important;
+        height: 45px !important;
+    }
+
+    .header h4 {
+        font-size: 16px !important;
+    }
+
+    .header .ant-typography {
+        font-size: 9px !important;
+    }
+
+    .ant-space {
+        transform: scale(0.85);
+    }
+
+    .ant-divider-vertical {
+        height: 40px !important;
+        margin: 0 12px !important;
+    }
+}
+
+/* Tablet Optimization */
+@media (min-width: 769px) and (max-width: 1200px) {
+    .header .container {
+        padding: 0 25px !important;
+    }
+
+    .header img {
+        height: 48px !important;
+        width: 48px !important;
+    }
+
+    .header h4 {
+        font-size: 18px !important;
+    }
+
+    .ant-divider-vertical {
+        margin: 0 15px !important;
+    }
+
+    .ant-space {
+        gap: 15px !important;
+    }
+}
+
+/* Ensure everything stays in one line on desktop */
+@media (min-width: 1201px) {
+    .header .ant-row {
+        flex-wrap: nowrap;
+    }
+}

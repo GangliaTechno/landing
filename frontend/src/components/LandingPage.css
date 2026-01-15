@@ -1,0 +1,269 @@
+@keyframes morph {
+    0% {
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+        transform: translate(0, 0) rotate(0deg) scale(1);
+    }
+
+    25% {
+        border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+        transform: translate(40px, -40px) rotate(90deg) scale(1.15);
+    }
+
+    50% {
+        border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%;
+        transform: translate(-40px, 40px) rotate(180deg) scale(0.9);
+    }
+
+    75% {
+        border-radius: 40% 70% 60% 30% / 70% 50% 40% 60%;
+        transform: translate(30px, 30px) rotate(270deg) scale(1.1);
+    }
+
+    100% {
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+        transform: translate(0, 0) rotate(360deg) scale(1);
+    }
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0) translateX(0) scale(1);
+    }
+
+    25% {
+        transform: translateY(-2%) translateX(20px) scale(1.02);
+    }
+
+    50% {
+        transform: translateY(2%) translateX(0) scale(0.98);
+    }
+
+    75% {
+        transform: translateY(-2%) translateX(-20px) scale(1.02);
+    }
+}
+
+@keyframes glow-pulse {
+
+    0%,
+    100% {
+        filter: drop-shadow(0 0 20px rgba(255, 87, 34, 0.4)) drop-shadow(0 0 40px rgba(255, 255, 255, 0.3)) drop-shadow(0 10px 30px rgba(0, 0, 0, 0.2));
+    }
+
+    50% {
+        filter: drop-shadow(0 0 40px rgba(255, 87, 34, 0.7)) drop-shadow(0 0 60px rgba(255, 255, 255, 0.5)) drop-shadow(0 15px 50px rgba(0, 0, 0, 0.3));
+    }
+}
+
+@keyframes rotate-subtle {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(-2deg);
+    }
+
+    50% {
+        transform: translateY(0) rotate(2deg);
+    }
+}
+
+/* Gradient Blob Animation - Completely removed or made invisible */
+.gradient-blob {
+    display: none;
+}
+
+.blob-1 {
+    width: 400px;
+    height: 400px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 204, 188, 0.3) 50%, rgba(255, 87, 34, 0.3) 100%);
+    top: -100px;
+    right: 200px;
+    animation: morph 10s ease-in-out infinite;
+}
+
+.blob-2 {
+    width: 450px;
+    height: 450px;
+    background: linear-gradient(135deg, rgba(255, 87, 34, 0.2) 0%, rgba(255, 138, 101, 0.2) 50%, rgba(216, 67, 21, 0.2) 100%);
+    top: 60px;
+    right: -40px;
+    animation: morph 13s ease-in-out infinite reverse;
+    animation-delay: -4s;
+}
+
+.blob-3 {
+    width: 350px;
+    height: 500px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 171, 145, 0.2) 50%, rgba(255, 87, 34, 0.2) 100%);
+    bottom: -100px;
+    right: 120px;
+    animation: morph 16s ease-in-out infinite;
+    animation-delay: -8s;
+    opacity: 0.3;
+}
+
+/* Remove overlay blobs that are causing the line */
+.right-content::before {
+    display: none;
+}
+
+.right-content::after {
+    display: none;
+}
+
+.animation-wrapper {
+    animation: float 7s ease-in-out infinite;
+}
+
+.color-ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: conic-gradient(from 0deg,
+            #FFD93D,
+            #FF6B6B,
+            #4ECDC4,
+            #1A535C,
+            #9f56e3,
+            #FFD93D);
+    animation: spin 10s linear infinite;
+    filter: blur(20px);
+    opacity: 0.8;
+}
+
+.image-container-animated {
+    animation:
+        glow-pulse 3.5s ease-in-out infinite,
+        rotate-subtle 9s ease-in-out infinite;
+    transition: all 0.4s ease;
+    position: relative;
+    backdrop-filter: blur(5px);
+    box-shadow:
+        0 0 0 1px rgba(255, 87, 34, 0.3),
+        inset 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+/* Add a subtle gradient overlay to blend with background */
+.image-container-animated::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: inherit;
+    background: linear-gradient(135deg,
+            rgba(255, 87, 34, 0.15) 0%,
+            transparent 50%,
+            rgba(255, 255, 255, 0.15) 100%);
+    z-index: 1;
+    pointer-events: none;
+    mix-blend-mode: overlay;
+}
+
+.image-container-animated img {
+    position: relative;
+    z-index: 0;
+}
+
+.image-container-animated:hover {
+    animation-play-state: paused;
+    transform: scale(1.08);
+    filter: drop-shadow(0 0 60px rgba(255, 87, 34, 0.9)) drop-shadow(0 0 80px rgba(255, 255, 255, 0.7)) drop-shadow(0 20px 60px rgba(0, 0, 0, 0.4));
+    border-color: rgba(255, 87, 34, 0.5);
+}
+
+/* Responsive Design */
+.landing-content-wrapper {
+    padding: 30px 60px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 1200px) {
+    .content-grid {
+        grid-template-columns: 1fr !important;
+        gap: 60px !important;
+    }
+
+    .hero-title {
+        font-size: 80px !important;
+    }
+
+    .right-content {
+        height: 500px !important;
+    }
+
+    .blob-1 {
+        width: 300px;
+        height: 300px;
+    }
+
+    .blob-2 {
+        width: 350px;
+        height: 350px;
+    }
+
+    .blob-3 {
+        width: 280px;
+        height: 400px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .right-content {
+        display: none !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .landing-content-wrapper {
+        padding: 20px !important;
+        height: auto !important;
+        min-height: 100vh;
+    }
+
+    .landing-container {
+        padding: 0 !important;
+    }
+
+    .hero-title {
+        font-size: 60px !important;
+    }
+
+    .description {
+        font-size: 18px !important;
+    }
+
+    .social-section {
+        flex-wrap: wrap;
+    }
+}
+
+/* Border Animation for Image Container */
+.image-container-animated::after {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    right: -15px;
+    bottom: -15px;
+    border-radius: 45px;
+    border: 4px dotted #ff6600;
+    z-index: -1;
+    animation: rotate-border 20s linear infinite;
+}
+
+@keyframes rotate-border {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
