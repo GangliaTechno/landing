@@ -9,7 +9,7 @@ const Header = () => {
     const navigate = useNavigate();
 
     return (
-        <header className="header" style={{ background: '#fff', borderBottom: '1px solid #e8e8e8', padding: '15px 0' }}>
+        <header className="header" style={{ background: '#fff', borderBottom: '1px solid #e8e8e8', padding: '25px 0' }}>
             <div className="container" style={{ width: '100%', maxWidth: '100%', padding: '0 40px' }}>
                 <Row align="middle" justify="space-between" gutter={[16, 0]} wrap={false}>
                     {/* Left: Logo Section */}
@@ -19,8 +19,8 @@ const Header = () => {
                                 src={logo}
                                 alt="Kasturba Medical College Logo"
                                 style={{
-                                    height: '55px',
-                                    width: '55px',
+                                    height: '70px',
+                                    width: '70px',
                                     objectFit: 'contain'
                                 }}
                             />
@@ -30,7 +30,7 @@ const Header = () => {
                                     lineHeight: '1.2',
                                     fontFamily: 'Inter, sans-serif',
                                     fontWeight: '700',
-                                    fontSize: '20px',
+                                    fontSize: '24px',
                                     color: '#c62828',
                                     letterSpacing: '0.3px',
                                     whiteSpace: 'nowrap'
@@ -38,7 +38,7 @@ const Header = () => {
                                     DEPARTMENT OF ARTIFICIAL INTELLIGENCE IN HEALTHCARE
                                 </Title>
                                 <Text style={{
-                                    fontSize: '11px',
+                                    fontSize: '15px',
                                     letterSpacing: '1.5px',
                                     color: '#666',
                                     fontWeight: '500',
@@ -47,7 +47,7 @@ const Header = () => {
                                     KASTURBA MEDICAL COLLEGE
                                 </Text>
                                 <Text italic style={{
-                                    fontSize: '9px',
+                                    fontSize: '13px',
                                     color: '#999',
                                     marginTop: '1px'
                                 }}>

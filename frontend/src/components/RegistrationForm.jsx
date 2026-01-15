@@ -4,7 +4,7 @@ import { Form, Input, Select, Button, Row, Col, Typography, message, ConfigProvi
 import Header from './Header';
 import Footer from './Footer';
 import img1 from '../assets/I1.jpeg';
-import img2 from '../assets/I2.png';
+import img2 from '../assets/College_replace.jpg';
 import img3 from '../assets/l3.png';
 import './RegistrationForm.css';
 

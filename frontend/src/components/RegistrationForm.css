@@ -81,7 +81,8 @@
 .custom-select-registration .ant-select-selection-placeholder {
     line-height: 36px !important;
     color: #000000 !important;
-    font-weight: 500 !important;
+    font-weight: 600 !important;
+    font-size: 16px !important;
     font-family: 'Inter', sans-serif !important;
 }
 
@@ -91,11 +92,38 @@
     font-weight: 500 !important;
 }
 
-.custom-input::placeholder,
-.custom-input-with-addon input::placeholder,
-.ant-input::placeholder {
-    color: #666 !important;
-    font-weight: 500 !important;
+/* Specific targeting for basic inputs */
+.custom-input::placeholder {
+    color: #333 !important;
+    font-weight: 600 !important;
+    font-size: 16px !important;
+    opacity: 1 !important;
+    font-family: 'Inter', sans-serif !important;
+}
+
+/* Specific targeting for inputs with addons (where class is on wrapper) */
+.custom-input-with-addon input::placeholder {
+    color: #333 !important;
+    font-weight: 600 !important;
+    font-size: 16px !important;
+    opacity: 1 !important;
+    font-family: 'Inter', sans-serif !important;
+}
+
+/* Specific targeting for TextAreas */
+.custom-input textarea::placeholder {
+    color: #333 !important;
+    font-weight: 600 !important;
+    font-size: 16px !important;
+    opacity: 1 !important;
+    font-family: 'Inter', sans-serif !important;
+}
+
+/* Fallback/General targeting within the form column */
+.form-col .ant-input::placeholder {
+    color: #333 !important;
+    font-weight: 600 !important;
+    font-size: 16px !important;
     opacity: 1 !important;
     font-family: 'Inter', sans-serif !important;
 }
