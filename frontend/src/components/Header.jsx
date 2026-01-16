@@ -10,11 +10,11 @@ const Header = () => {
 
     return (
         <header className="header" style={{ background: '#fff', borderBottom: '1px solid #e8e8e8', padding: '25px 0' }}>
-            <div className="container" style={{ width: '100%', padding: '0' }}>
+            <div className="container" style={{ width: '100%', padding: '0 0 0 20px' }}>
                 <Row align="middle" justify="start" gutter={[16, 0]} wrap={false}>
                     {/* Left: Logo Section */}
                     <Col flex="none">
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer', marginLeft: '-10px' }} onClick={() => navigate('/')}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer', marginLeft: '-80px' }} onClick={() => navigate('/')}>
                             <img
                                 src={logo}
                                 alt="Kasturba Medical College Logo"

@@ -61,7 +61,7 @@ ${values.comments}
                 justifyContent: 'center',
                 alignItems: 'center',
                 flex: 1,
-                padding: '40px 20px',
+                padding: '80px 20px',
                 background: '#ffffff'
             }}>
                 <div style={{ maxWidth: '550px', margin: '0 auto', width: '100%' }}>
@@ -101,7 +101,7 @@ ${values.comments}
                                 { type: 'email', message: 'The input is not valid E-mail!' },
                                 { required: true, message: 'Please input your E-mail!' },
                             ]}
-                            style={{ marginBottom: '12px' }}
+                            style={{ marginBottom: '20px' }}
                         >
                             <Input
                                 prefix={<MailOutlined style={{ color: '#999', fontSize: '16px' }} />}
@@ -124,7 +124,7 @@ ${values.comments}
                         <Form.Item
                             name="phone"
                             rules={[{ required: true, message: 'Please input your phone number!' }]}
-                            style={{ marginBottom: '12px' }}
+                            style={{ marginBottom: '20px' }}
                         >
                             <Input
                                 addonBefore={prefixSelector}
@@ -145,7 +145,7 @@ ${values.comments}
                         <Form.Item
                             name="company"
                             rules={[{ required: true, message: 'Please input your Company / Organization name!' }]}
-                            style={{ marginBottom: '12px' }}
+                            style={{ marginBottom: '20px' }}
                         >
                             <Input
                                 prefix={<HomeOutlined style={{ color: '#999', fontSize: '16px' }} />}
@@ -168,7 +168,7 @@ ${values.comments}
                         <Form.Item
                             name="collaborationType"
                             rules={[{ required: true, message: 'Please select collaboration type!' }]}
-                            style={{ marginBottom: '12px' }}
+                            style={{ marginBottom: '20px' }}
                         >
                             <ConfigProvider theme={{
                                 token: {
@@ -195,7 +195,7 @@ ${values.comments}
                         <Form.Item
                             name="comments"
                             rules={[{ required: false }]}
-                            style={{ marginBottom: '16px' }}
+                            style={{ marginBottom: '24px' }}
                         >
                             <Input.TextArea
                                 prefix={<MessageOutlined style={{ color: '#999', fontSize: '16px' }} />}

@@ -46,6 +46,43 @@ const LandingPage = () => {
             background: 'linear-gradient(135deg, #ffffff 0%, #fff5f0 50%, #ff6600 100%)',
             position: 'relative'
         }}>
+            {/* Animated Dotted Background */}
+            <div className="animated-dots-background" style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                zIndex: 0,
+                pointerEvents: 'none',
+                overflow: 'hidden'
+            }}>
+                <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <pattern id="dotPattern" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+                            <circle cx="3" cy="3" r="2" fill="rgba(255, 87, 34, 0.4)">
+                                <animate attributeName="r" values="2;3.5;2" dur="3s" repeatCount="indefinite" />
+                                <animate attributeName="opacity" values="0.4;0.7;0.4" dur="3s" repeatCount="indefinite" />
+                            </circle>
+                        </pattern>
+                        <pattern id="dotPattern2" x="15" y="15" width="30" height="30" patternUnits="userSpaceOnUse">
+                            <circle cx="3" cy="3" r="2" fill="rgba(255, 87, 34, 0.3)">
+                                <animate attributeName="r" values="2;3;2" dur="2.5s" repeatCount="indefinite" begin="0.5s" />
+                                <animate attributeName="opacity" values="0.3;0.6;0.3" dur="2.5s" repeatCount="indefinite" begin="0.5s" />
+                            </circle>
+                        </pattern>
+                        <pattern id="dotPattern3" x="7" y="7" width="30" height="30" patternUnits="userSpaceOnUse">
+                            <circle cx="3" cy="3" r="1.5" fill="rgba(255, 255, 255, 0.5)">
+                                <animate attributeName="r" values="1.5;2.5;1.5" dur="3.5s" repeatCount="indefinite" begin="1s" />
+                                <animate attributeName="opacity" values="0.5;0.8;0.5" dur="3.5s" repeatCount="indefinite" begin="1s" />
+                            </circle>
+                        </pattern>
+                    </defs>
+                    <rect width="100%" height="100%" fill="url(#dotPattern)" />
+                    <rect width="100%" height="100%" fill="url(#dotPattern2)" />
+                    <rect width="100%" height="100%" fill="url(#dotPattern3)" />
+                </svg>
+            </div>
             <Header />
 
             {/* Hero Section - Split Partitioned Layout */}
@@ -54,10 +91,10 @@ const LandingPage = () => {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                padding: '30px 40px',
+                padding: '60px 40px',
                 position: 'relative',
                 overflow: 'hidden',
-                minHeight: 'calc(100vh - 150px)'
+                minHeight: 'calc(100vh - 80px)'
             }}>
                 <div style={{
                     maxWidth: '1400px',
@@ -65,7 +102,8 @@ const LandingPage = () => {
                     display: 'flex',
                     alignItems: 'center',
                     gap: '60px',
-                    zIndex: 2,
+                    zIndex: 10,
+                    position: 'relative',
                     flexWrap: 'wrap'
                 }}>
                     {/* Left Partition: Carousel */}
@@ -81,7 +119,7 @@ const LandingPage = () => {
                         <div className="coverflow-container" style={{
                             position: 'relative',
                             width: '100%',
-                            height: '450px',
+                            height: '550px',
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center'
