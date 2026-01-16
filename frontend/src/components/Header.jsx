@@ -10,17 +10,17 @@ const Header = () => {
 
     return (
         <header className="header" style={{ background: '#fff', borderBottom: '1px solid #e8e8e8', padding: '25px 0' }}>
-            <div className="container" style={{ width: '100%', maxWidth: '100%', padding: '0 40px' }}>
-                <Row align="middle" justify="space-between" gutter={[16, 0]} wrap={false}>
+            <div className="container" style={{ width: '100%', padding: '0' }}>
+                <Row align="middle" justify="start" gutter={[16, 0]} wrap={false}>
                     {/* Left: Logo Section */}
                     <Col flex="none">
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '15px', cursor: 'pointer' }} onClick={() => navigate('/')}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer', marginLeft: '-10px' }} onClick={() => navigate('/')}>
                             <img
                                 src={logo}
                                 alt="Kasturba Medical College Logo"
                                 style={{
-                                    height: '70px',
-                                    width: '70px',
+                                    height: '55px',
+                                    width: '55px',
                                     objectFit: 'contain'
                                 }}
                             />
@@ -30,7 +30,7 @@ const Header = () => {
                                     lineHeight: '1.2',
                                     fontFamily: 'Inter, sans-serif',
                                     fontWeight: '700',
-                                    fontSize: '24px',
+                                    fontSize: '20px',
                                     color: '#c62828',
                                     letterSpacing: '0.3px',
                                     whiteSpace: 'nowrap'
@@ -38,7 +38,7 @@ const Header = () => {
                                     DEPARTMENT OF ARTIFICIAL INTELLIGENCE IN HEALTHCARE
                                 </Title>
                                 <Text style={{
-                                    fontSize: '15px',
+                                    fontSize: '13px',
                                     letterSpacing: '1.5px',
                                     color: '#666',
                                     fontWeight: '500',
@@ -47,7 +47,7 @@ const Header = () => {
                                     KASTURBA MEDICAL COLLEGE
                                 </Text>
                                 <Text italic style={{
-                                    fontSize: '13px',
+                                    fontSize: '11px',
                                     color: '#999',
                                     marginTop: '1px'
                                 }}>
@@ -57,23 +57,21 @@ const Header = () => {
                         </div>
                     </Col>
 
-                    {/* Right: Accolades Section */}
                     <Col flex="none" style={{ marginLeft: 'auto' }}>
                         <Space
-                            size="middle"
-                            split={<Divider type="vertical" style={{ height: '50px', borderColor: '#d9d9d9', margin: '0 20px' }} />}
+                            size="small"
+                            split={<Divider type="vertical" style={{ height: '40px', borderColor: '#d9d9d9', margin: '0 15px' }} />}
                             align="center"
                         >
-                            {/* Institution of Eminence */}
                             <div style={{
                                 display: 'flex',
                                 flexDirection: 'column',
                                 alignItems: 'center',
                                 justifyContent: 'center',
-                                height: '50px'
+                                height: '40px'
                             }}>
                                 <Text style={{
-                                    fontSize: '9px',
+                                    fontSize: '8px',
                                     fontWeight: '600',
                                     color: '#333',
                                     lineHeight: 1,
@@ -84,35 +82,34 @@ const Header = () => {
                                 <div style={{
                                     background: '#ff6f00',
                                     color: '#fff',
-                                    padding: '3px 12px',
-                                    fontSize: '11px',
+                                    padding: '2px 10px',
+                                    fontSize: '10px',
                                     fontWeight: 'bold',
-                                    marginTop: '3px',
+                                    marginTop: '2px',
                                     letterSpacing: '0.5px'
                                 }}>
                                     EMINENCE
                                 </div>
                             </div>
 
-                            {/* NAAC Badge */}
                             <div style={{
                                 display: 'flex',
                                 alignItems: 'center',
                                 justifyContent: 'center',
-                                height: '50px'
+                                height: '40px'
                             }}>
                                 <div style={{
                                     border: '2px solid #333',
                                     borderRadius: '50%',
-                                    width: '50px',
-                                    height: '50px',
+                                    width: '40px',
+                                    height: '40px',
                                     display: 'flex',
                                     flexDirection: 'column',
                                     alignItems: 'center',
                                     justifyContent: 'center'
                                 }}>
                                     <Text style={{
-                                        fontSize: '9px',
+                                        fontSize: '8px',
                                         fontWeight: 'bold',
                                         lineHeight: 1,
                                         color: '#333'
@@ -120,7 +117,7 @@ const Header = () => {
                                         NAAC
                                     </Text>
                                     <Text style={{
-                                        fontSize: '16px',
+                                        fontSize: '14px',
                                         fontWeight: 'bold',
                                         lineHeight: 1.1,
                                         color: '#333',
@@ -129,7 +126,7 @@ const Header = () => {
                                         A++
                                     </Text>
                                     <Text style={{
-                                        fontSize: '7px',
+                                        fontSize: '6px',
                                         color: '#666',
                                         lineHeight: 1
                                     }}>
@@ -138,15 +135,14 @@ const Header = () => {
                                 </div>
                             </div>
 
-                            {/* NIRF Badge */}
                             <div style={{
                                 display: 'flex',
                                 alignItems: 'center',
                                 justifyContent: 'center',
-                                height: '50px'
+                                height: '40px'
                             }}>
                                 <Text style={{
-                                    fontSize: '22px',
+                                    fontSize: '18px',
                                     fontWeight: 'bold',
                                     color: '#333',
                                     lineHeight: 1
@@ -154,7 +150,7 @@ const Header = () => {
                                     NIRF
                                 </Text>
                                 <Text style={{
-                                    fontSize: '22px',
+                                    fontSize: '18px',
                                     fontWeight: 'bold',
                                     color: '#ff6f00',
                                     marginLeft: '4px',
