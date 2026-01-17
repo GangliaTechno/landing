@@ -41,7 +41,7 @@ const Footer = ({ style }) => {
                         <EnvironmentOutlined style={{ fontSize: '15px', color: '#ff5722', marginTop: '6px' }} />
                         <div>
                             <Text strong style={{ 
-                                display: 'block', fontSize: '18px', lineHeight: '1', 
+                                display: 'block', fontSize: '15px', lineHeight: '1', 
                                 color: '#fff', marginBottom: '5px', fontFamily: "'Inter', sans-serif" 
                             }}>
                                 Address:
@@ -59,10 +59,10 @@ const Footer = ({ style }) => {
                         <MailOutlined style={{ fontSize: '15px', color: '#ff5722', marginTop: '6px' }} />
                         <div>
                             <Text strong style={{ 
-                                display: 'block', fontSize: '18px', lineHeight: '1', 
+                                display: 'block', fontSize: '15px', lineHeight: '1', 
                                 color: '#fff', marginBottom: '5px', fontFamily: "'Inter', sans-serif" 
                             }}>
-                                Email ID's:
+                                Email ID:
                             </Text>
                             <Text style={{ display: 'block', color: 'rgba(255,255,255,0.7)', fontSize: '14px', marginBottom: '2px' }}>
                                 dpr.mu@manipal.edu
