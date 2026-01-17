@@ -1,244 +1,228 @@
-import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import { Form, Input, Select, Button, Typography, Modal, message, ConfigProvider } from 'antd';
+import { MailOutlined, HomeOutlined, TeamOutlined, MessageOutlined } from '@ant-design/icons';
 import Header from './Header';
 import Footer from './Footer';
-import slide1 from '../assets/I1.jpeg';
-import slide2 from '../assets/college_replace.jpg';
-import slide3 from '../assets/l3.png';
-import additionalImg from '../assets/additional_img.jpg';
+import bgVideo from '../assets/video.mp4'; 
 import './LandingPage.css';
 
+const { Title, Text } = Typography;
+const { Option } = Select;
+
 const LandingPage = () => {
-    const navigate = useNavigate();
-    const [currentSlide, setCurrentSlide] = useState(1);
-    const slides = [slide1, slide2, slide3, additionalImg];
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [form] = Form.useForm();
 
-    // Create extended array for seamless looping
-    const extendedSlides = [...slides, ...slides, ...slides];
+    const showModal = () => {
+        setIsModalOpen(true);
+    };
 
-    useEffect(() => {
-        const timer = setInterval(() => {
-            setCurrentSlide((prev) => prev + 1);
-        }, 3500);
+    const handleCancel = () => {
+        setIsModalOpen(false);
+        form.resetFields();
+    };
 
-        return () => clearInterval(timer);
-    }, []);
+    const onFinish = (values) => {
+        const subject = `New Inquiry: ${values.collaborationType} - ${values.company}`;
+        const body = `New Inquiry Received:\n\nEmail: ${values.email}\nPhone: +91 ${values.phone}\nCompany/Organization: ${values.company}\nCollaboration Type: ${values.collaborationType}\n\nMessage:\n${values.comments || 'No comments provided.'}`;
+        const mailtoLink = `mailto:aihealthcare.kmc@manipal.edu?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        
+        const link = document.createElement('a');
+        link.href = mailtoLink;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
 
-    // Reset to middle set when reaching end for seamless loop
-    useEffect(() => {
-        if (currentSlide >= slides.length * 2) {
-            setTimeout(() => {
-                setCurrentSlide(slides.length);
-            }, 600);
-        } else if (currentSlide < slides.length) {
-            setTimeout(() => {
-                setCurrentSlide(slides.length * 2 - 1);
-            }, 600);
-        }
-    }, [currentSlide, slides.length]);
+        message.success('Opening your email client...');
+        setIsModalOpen(false);
+        form.resetFields();
+    };
+
+    const prefixSelector = (
+        <span style={{ fontSize: '15px', fontWeight: '600', color: '#1a1a1a', padding: '0 4px', fontFamily: "'Inter', sans-serif" }}>+91</span>
+    );
 
     return (
         <div style={{
+            position: 'relative',
             minHeight: '100vh',
             display: 'flex',
             flexDirection: 'column',
-            overflowX: 'hidden',
-            background: 'linear-gradient(135deg, #ffffff 0%, #fff5f0 50%, #ff6600 100%)',
-            position: 'relative'
+            overflow: 'hidden',
+            backgroundColor: '#000',
+            color: '#fff'
         }}>
-            {/* Animated Dotted Background */}
-            <div className="animated-dots-background" style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                width: '100%',
-                height: '100%',
-                zIndex: 0,
-                pointerEvents: 'none',
-                overflow: 'hidden'
-            }}>
-                <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <pattern id="dotPattern" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
-                            <circle cx="3" cy="3" r="2" fill="rgba(255, 87, 34, 0.4)">
-                                <animate attributeName="r" values="2;3.5;2" dur="3s" repeatCount="indefinite" />
-                                <animate attributeName="opacity" values="0.4;0.7;0.4" dur="3s" repeatCount="indefinite" />
-                            </circle>
-                        </pattern>
-                        <pattern id="dotPattern2" x="15" y="15" width="30" height="30" patternUnits="userSpaceOnUse">
-                            <circle cx="3" cy="3" r="2" fill="rgba(255, 87, 34, 0.3)">
-                                <animate attributeName="r" values="2;3;2" dur="2.5s" repeatCount="indefinite" begin="0.5s" />
-                                <animate attributeName="opacity" values="0.3;0.6;0.3" dur="2.5s" repeatCount="indefinite" begin="0.5s" />
-                            </circle>
-                        </pattern>
-                        <pattern id="dotPattern3" x="7" y="7" width="30" height="30" patternUnits="userSpaceOnUse">
-                            <circle cx="3" cy="3" r="1.5" fill="rgba(255, 255, 255, 0.5)">
-                                <animate attributeName="r" values="1.5;2.5;1.5" dur="3.5s" repeatCount="indefinite" begin="1s" />
-                                <animate attributeName="opacity" values="0.5;0.8;0.5" dur="3.5s" repeatCount="indefinite" begin="1s" />
-                            </circle>
-                        </pattern>
-                    </defs>
-                    <rect width="100%" height="100%" fill="url(#dotPattern)" />
-                    <rect width="100%" height="100%" fill="url(#dotPattern2)" />
-                    <rect width="100%" height="100%" fill="url(#dotPattern3)" />
-                </svg>
-            </div>
-            <Header />
+            {/* --- RESPONSIVE CSS OVERRIDES --- */}
+            <style>{`
+                /* 1. INPUT STYLING (Glow & Bold) */
+                .ant-input-affix-wrapper:focus, .ant-input-affix-wrapper-focused,
+                .ant-input-affix-wrapper:not(.ant-input-affix-wrapper-disabled):hover,
+                .ant-select-selector:focus, .ant-select-focused .ant-select-selector,
+                .ant-select:not(.ant-select-disabled):hover .ant-select-selector,
+                textarea.ant-input:focus, textarea.ant-input:hover {
+                    border-color: #ff5722 !important;
+                    box-shadow: 0 0 0 2px rgba(255, 87, 34, 0.2) !important;
+                }
 
-            {/* Hero Section - Split Partitioned Layout */}
-            <div className="hero-section" style={{
-                flex: 1,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                padding: '60px 40px',
-                position: 'relative',
-                overflow: 'hidden',
-                minHeight: 'calc(100vh - 80px)'
+                .ant-input-affix-wrapper > input.ant-input,
+                .ant-input-affix-wrapper > input.ant-input:focus {
+                    box-shadow: none !important;
+                    border: none !important;
+                }
+
+                .ant-input, .ant-input-affix-wrapper input, .ant-select-selection-item {
+                    font-weight: 600 !important;
+                    font-family: 'Inter', sans-serif !important;
+                    color: #1a1a1a !important;
+                }
+
+                .ant-input::placeholder, .ant-input-affix-wrapper input::placeholder,
+                textarea.ant-input::placeholder, .ant-select-selection-placeholder {
+                    font-weight: 600 !important;
+                    opacity: 0.8 !important;
+                    color: #666 !important;
+                    font-family: 'Inter', sans-serif !important;
+                }
+
+                /* 2. RESPONSIVE VIDEO SCALING */
+                /* On Desktop: Scale up to hide bars */
+                .bg-video {
+                    transform: scale(1.35);
+                    transform-origin: center center;
+                }
+                /* On Mobile (Screens narrower than 768px): Reset scale */
+                /* Mobile screens are usually tall, so 'cover' naturally hides side bars without zoom */
+                @media (max-width: 768px) {
+                    .bg-video {
+                        transform: scale(1.0); 
+                    }
+                }
+
+                /* 3. RESPONSIVE MODAL */
+                /* Forces modal to not exceed screen width on mobile */
+                .responsive-modal .ant-modal {
+                    max-width: 95vw !important;
+                    margin: 10px auto;
+                    padding-bottom: 20px;
+                }
+                .responsive-modal .ant-modal-content {
+                    padding: 20px !important;
+                }
+            `}</style>
+
+            {/* Background Video Layer */}
+            <div style={{
+                position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', zIndex: 0, overflow: 'hidden'
             }}>
-                <div style={{
-                    maxWidth: '1400px',
-                    width: '100%',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '60px',
-                    zIndex: 10,
-                    position: 'relative',
-                    flexWrap: 'wrap'
+                <video
+                    className="bg-video" // Added class for responsive scaling
+                    autoPlay loop muted playsInline
+                    style={{
+                        width: '100%', height: '100%', objectFit: 'cover', opacity: 0.7
+                    }}
+                >
+                    <source src={bgVideo} type="video/mp4" />
+                </video>
+            </div>
+
+            {/* Gradient Overlay */}
+            <div style={{
+                position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', zIndex: 1, 
+                background: 'linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 75%, #000000 100%)',
+                pointerEvents: 'none'
+            }}></div>
+
+            {/* Header */}
+            <div style={{ position: 'relative', zIndex: 2 }}>
+                <Header />
+            </div>
+
+            {/* Main Content */}
+            <div style={{
+                flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+                textAlign: 'center', position: 'relative', zIndex: 2, padding: '20px',
+            }}>
+                {/* Responsive Title using Clamp */}
+                <h1 className="animate-entry" style={{
+                    fontSize: 'clamp(2.5rem, 6vw, 5rem)', // Scales between 2.5rem (mobile) and 5rem (desktop)
+                    fontWeight: '800', letterSpacing: '2px', margin: '0 0 20px 0', fontFamily: "'Inter', sans-serif"
                 }}>
-                    {/* Left Partition: Carousel */}
-                    <div style={{
-                        flex: '1 1 600px',
-                        display: 'flex',
-                        flexDirection: 'column',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        perspective: '1800px',
-                        position: 'relative'
-                    }}>
-                        <div className="coverflow-container" style={{
-                            position: 'relative',
-                            width: '100%',
-                            height: '550px',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center'
-                        }}>
-                            {extendedSlides.map((slide, index) => {
-                                const offset = index - currentSlide;
-                                const isActive = index === currentSlide;
-                                const absOffset = Math.abs(offset);
+                    LAUNCHING SOON
+                </h1>
 
-                                if (absOffset > 2) return null;
+                <p className="animate-entry" style={{
+                    fontSize: '14px', maxWidth: '800px', lineHeight: '1.6', margin: '0 0 40px 0', opacity: 0.9, animationDelay: '0.2s' 
+                }}>
+                    India’s first AI in Healthcare department at KMC Manipal (Aug 2025) integrates AI with clinical practice and education.
+                    It advances AI-driven diagnostics, decision-making, and responsible healthcare innovation.
+                </p>
 
-                                return (
-                                    <div
-                                        key={index}
-                                        className="coverflow-slide"
-                                        style={{
-                                            position: 'absolute',
-                                            width: '380px',
-                                            height: '350px',
-                                            borderRadius: '20px',
-                                            overflow: 'hidden',
-                                            cursor: 'pointer',
-                                            transition: 'all 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
-                                            transform: `
-                                                translateX(${offset * 180}px)
-                                                rotateY(${offset * -35}deg)
-                                                scale(${isActive ? 1.1 : 0.75})
-                                                translateZ(${isActive ? 100 : -200}px)
-                                            `,
-                                            opacity: absOffset > 1 ? 0 : (isActive ? 1 : 0.45),
-                                            zIndex: isActive ? 20 : 10 - absOffset,
-                                            boxShadow: isActive
-                                                ? '0 28px 70px rgba(255, 87, 34, 0.4), 0 0 90px rgba(255, 255, 255, 0.3), 0 12px 45px rgba(0, 0, 0, 0.25)'
-                                                : '0 12px 35px rgba(0, 0, 0, 0.35)',
-                                            filter: isActive ? 'brightness(1.1) saturate(1.05)' : 'brightness(0.6) saturate(0.8)',
-                                            border: isActive ? '2.5px solid rgba(255, 87, 34, 0.3)' : '1.5px solid rgba(255, 255, 255, 0.15)'
-                                        }}
-                                        onClick={() => setCurrentSlide(index)}
-                                    >
-                                        <img
-                                            src={slide}
-                                            alt={`Slide ${(index % slides.length) + 1}`}
-                                            style={{
-                                                width: '100%',
-                                                height: '100%',
-                                                objectFit: 'cover',
-                                                objectPosition: 'center',
-                                                display: 'block'
-                                            }}
-                                        />
-                                    </div>
-                                );
-                            })}
-                        </div>
-
-                    </div>
-
-                    <div className="hero-content" style={{
-                        flex: '1 1 500px',
-                        display: 'flex',
-                        flexDirection: 'column',
-                        gap: '20px'
-                    }}>
-                        <h1 style={{
-                            fontSize: '56px',
-                            fontWeight: '800',
-                            color: '#1a1a1a',
-                            lineHeight: '1.2',
-                            margin: 0,
-                            fontFamily: "'Inter', sans-serif"
-                        }}>
-                            About Us
-                        </h1>
-                        <p style={{
-                            fontSize: '16px',
-                            lineHeight: '1.6',
-                            color: '#444',
-                            maxWidth: '600px',
-                            margin: 0,
-                            textAlign: 'justify'
-                        }}>
-                            The Department of Artificial Intelligence (AI) in Healthcare at Kasturba Medical College (KMC), Manipal is a newly established academic and strategic unit dedicated to integrating artificial intelligence with clinical medicine and medical education. Inaugurated in August 2025, it is the first department of its kind in a medical college in India, focusing on advancing AI-driven clinical decision-making, diagnostics, and patient care through research and real-world healthcare solutions, while promoting education, interdisciplinary collaboration, and responsible AI adoption to prepare healthcare professionals for the future of digital medicine.
-                        </p>
-                        <div style={{ display: 'flex', gap: '20px', marginTop: '10px' }}>
-                            <button
-                                onClick={() => navigate('/register')}
-                                style={{
-                                    padding: '18px 40px',
-                                    background: '#ff5722',
-                                    color: '#fff',
-                                    border: 'none',
-                                    borderRadius: '8px',
-                                    fontSize: '16px',
-                                    fontWeight: '600',
-                                    cursor: 'pointer',
-                                    transition: 'all 0.3s ease',
-                                    boxShadow: '0 4px 15px rgba(255, 87, 34, 0.3)'
-                                }}
-                            >
-                                CONTACT US
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Background Decor */}
-                <div style={{
-                    position: 'absolute',
-                    top: '20%',
-                    left: '5%',
-                    width: '400px',
-                    height: '400px',
-                    background: 'radial-gradient(circle, rgba(255, 87, 34, 0.05) 0%, transparent 70%)',
-                    zIndex: 0,
-                    pointerEvents: 'none'
-                }} />
+                <button
+                    onClick={showModal} className="animate-entry"
+                    style={{
+                        padding: '16px 40px', backgroundColor: '#ff5722', color: '#fff', border: 'none',
+                        borderRadius: '50px', fontSize: '16px', fontWeight: '600', cursor: 'pointer',
+                        transition: 'transform 0.2s ease, background 0.2s ease', boxShadow: '0 4px 15px rgba(255, 87, 34, 0.4)',
+                        animationDelay: '0.4s'
+                    }}
+                    onMouseOver={(e) => e.target.style.transform = 'scale(1.05)'}
+                    onMouseOut={(e) => e.target.style.transform = 'scale(1)'}
+                >
+                    CONTACT US
+                </button>
             </div>
 
-            <Footer />
+            {/* Footer */}
+            <div style={{ position: 'relative', zIndex: 2 }}>
+                <Footer />
+            </div>
+
+            {/* --- INQUIRY MODAL --- */}
+            <Modal
+                title={null} footer={null} open={isModalOpen} onCancel={handleCancel}
+                width={600} 
+                className="responsive-modal" // Enables the mobile width override
+                centered destroyOnClose
+                bodyStyle={{ padding: '30px 40px', background: '#fff', borderRadius: '8px' }}
+            >
+                <div style={{ textAlign: 'center', marginBottom: '30px' }}>
+                    <Title level={3} style={{ margin: 0, color: '#1a1a1a', fontWeight: '700', fontFamily: "'Inter', sans-serif" }}>Welcome!</Title>
+                    <Text style={{ color: '#666', fontSize: '14px', fontWeight: '500' }}>Kindly provide your details for further communication</Text>
+                </div>
+                
+                <Form form={form} name="inquiry_form" onFinish={onFinish} layout="vertical" size="large">
+                    <Form.Item name="email" rules={[{ type: 'email', message: 'The input is not valid E-mail!' }, { required: true, message: 'Please input your E-mail!' }]} style={{ marginBottom: '20px' }}>
+                        <Input className="bold-placeholder" prefix={<MailOutlined style={{ color: '#999', marginRight: '10px' }} />} placeholder="Email address*" style={{ borderRadius: '6px', fontSize: '15px', fontWeight: '600' }} />
+                    </Form.Item>
+
+                    <Form.Item name="phone" rules={[{ required: true, message: 'Please input your phone number!' }, { pattern: /^\d{10}$/, message: 'not a valid number' }]} style={{ marginBottom: '20px' }}>
+                        <Input className="bold-placeholder" addonBefore={prefixSelector} placeholder="Phone number*" maxLength={10} style={{ borderRadius: '6px', fontSize: '15px', fontWeight: '600' }} />
+                    </Form.Item>
+
+                    <Form.Item name="company" rules={[{ required: true, message: 'Please input your Company name!' }]} style={{ marginBottom: '20px' }}>
+                        <Input className="bold-placeholder" prefix={<HomeOutlined style={{ color: '#999', marginRight: '10px' }} />} placeholder="Company / Organization name*" style={{ borderRadius: '6px', fontSize: '15px', fontWeight: '600' }} />
+                    </Form.Item>
+
+                    <Form.Item name="collaborationType" rules={[{ required: true, message: 'Please select collaboration type!' }]} style={{ marginBottom: '20px' }}>
+                        <ConfigProvider theme={{ token: { colorPrimary: '#ff5722' } }}>
+                            <Select getPopupContainer={(trigger) => trigger.parentNode} className="bold-placeholder" placeholder="Collaboration type*" suffixIcon={<TeamOutlined style={{ color: '#999' }} />} style={{ borderRadius: '6px', fontWeight: '600' }}>
+                                <Option value="academic">Academic</Option>
+                                <Option value="research">Research</Option>
+                                <Option value="innovation">Innovation</Option>
+                                <Option value="project">Project</Option>
+                            </Select>
+                        </ConfigProvider>
+                    </Form.Item>
+
+                    <Form.Item name="comments" style={{ marginBottom: '24px' }}>
+                        <Input.TextArea className="bold-placeholder" prefix={<MessageOutlined style={{ color: '#999', marginRight: '10px' }} />} placeholder="Comments / message" rows={3} style={{ borderRadius: '6px', fontSize: '15px', fontWeight: '600' }} />
+                    </Form.Item>
+
+                    <Form.Item style={{ marginBottom: 0 }}>
+                        <Button type="primary" htmlType="submit" block style={{ backgroundColor: '#ff5722', borderColor: '#ff5722', height: '46px', borderRadius: '6px', fontWeight: '700', fontSize: '16px', fontFamily: "'Inter', sans-serif" }}>Submit Inquiry</Button>
+                    </Form.Item>
+                </Form>
+            </Modal>
         </div>
     );
 };

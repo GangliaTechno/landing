@@ -1,56 +1,40 @@
 :root {
-  /* Color Palette - Premium Dark Theme */
-  --color-bg-primary: #0a0a0a;
+  /* =========================================
+     Theme: Orange & Dark Video
+     ========================================= */
+  
+  /* Brand Colors */
+  --color-primary: #ff5722;       /* Your Main Orange */
+  --color-primary-hover: #f4511e; /* Darker Orange for hover */
+  --color-primary-glow: rgba(255, 87, 34, 0.5); 
+  
+  /* Backgrounds */
+  --color-bg-primary: #000000;    /* Pure black for video contrast */
   --color-bg-secondary: #1a1a1a;
-  --color-bg-glass: rgba(255, 255, 255, 0.05);
+  --color-bg-glass: rgba(255, 255, 255, 0.1);
   
+  /* Text */
   --color-text-primary: #ffffff;
-  --color-text-secondary: #a1a1aa;
-  --color-text-accent: #3b82f6; /* Premium Blue */
+  --color-text-secondary: rgba(255, 255, 255, 0.7);
   
-  --color-primary: #3b82f6;
-  --color-primary-glow: rgba(59, 130, 246, 0.5);
-  --color-secondary: #8b5cf6; /* Violet */
-  
-  --color-border: rgba(255, 255, 255, 0.1);
+  /* Borders */
+  --color-border: rgba(255, 255, 255, 0.15);
   
   /* Typography */
   --font-family-sans: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-family-display: 'Outfit', system-ui, -apple-system, sans-serif;
   
-  --font-size-xs: 0.75rem;
-  --font-size-sm: 0.875rem;
-  --font-size-base: 1rem;
-  --font-size-lg: 1.125rem;
-  --font-size-xl: 1.25rem;
-  --font-size-2xl: 1.5rem;
-  --font-size-3xl: 1.875rem;
-  --font-size-4xl: 2.25rem;
-  
-  /* Spacing */
-  --spacing-xs: 0.25rem;
-  --spacing-sm: 0.5rem;
+  /* Spacing & Layout */
   --spacing-md: 1rem;
-  --spacing-lg: 1.5rem;
-  --spacing-xl: 2rem;
-  --spacing-2xl: 3rem;
-  --spacing-3xl: 4rem;
-  
-  /* Effects */
-  --radius-sm: 0.25rem;
-  --radius-md: 0.5rem;
   --radius-lg: 1rem;
   --radius-full: 9999px;
   
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  --shadow-glow: 0 0 20px var(--color-primary-glow);
-  
-  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  /* Transitions */
   --transition-normal: 300ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* =========================================
+   Global Resets 
+   ========================================= */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -64,71 +48,69 @@ body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
+/* Headings */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-family-display);
+  font-family: var(--font-family-sans);
   font-weight: 700;
-  line-height: 1.1;
+  line-height: 1.2;
   color: var(--color-text-primary);
 }
 
+/* Links */
 a {
   color: var(--color-primary);
   text-decoration: none;
-  transition: color var(--transition-fast);
+  transition: color var(--transition-normal);
 }
 
 a:hover {
-  color: var(--color-secondary);
+  color: var(--color-primary-hover);
 }
 
+/* Buttons (Global Reset) */
 button {
   font-family: inherit;
   cursor: pointer;
 }
 
-/* Utilities */
+/* =========================================
+   Custom Scrollbar (Orange Themed)
+   ========================================= */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: var(--radius-full);
+  border: 2px solid #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary); /* Turns orange on hover */
+}
+
+/* =========================================
+   Utilities (Optional helper classes)
+   ========================================= */
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 var(--spacing-md);
 }
 
-.flex-center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.text-gradient {
-  background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
+/* Glass effect helper if you need it later */
 .glass-panel {
   background: var(--color-bg-glass);
   backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-}
-
-/* Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--color-bg-primary);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--color-bg-secondary);
-  border-radius: var(--radius-full);
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-border);
 }

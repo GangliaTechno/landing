@@ -1,4 +1,3 @@
-
 import { Typography } from 'antd';
 import { EnvironmentOutlined, MailOutlined } from '@ant-design/icons';
 
@@ -6,33 +5,69 @@ const { Title, Text } = Typography;
 
 const Footer = ({ style }) => {
     return (
-        <div style={{ background: '#ffffff', padding: '20px 20px', color: '#000', textAlign: 'center', width: '100%', ...style }}>
-            <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-                <Title level={4} style={{ color: '#000', marginBottom: '20px', fontWeight: 'bold', fontSize: '18px' }}>Contact info:</Title>
+        <div style={{ 
+            background: 'transparent', 
+            padding: '5px 0', 
+            color: '#fff', 
+            textAlign: 'center', 
+            width: '100%', 
+            borderTop: '1px solid rgba(255,255,255,0.1)', 
+            ...style 
+        }}>
+            <div style={{ maxWidth: '1000px', margin: '0 auto', padding: '0 20px' }}>
+                <Title level={5} style={{ 
+                    color: '#fff', 
+                    marginBottom: '10px', 
+                    fontWeight: '600', 
+                    fontSize: '16px', 
+                    fontFamily: "'Inter', sans-serif"
+                }}>
+                    Get in touch with us
+                </Title>
 
-                <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '50px' }}>
-                    {/* Address */}
-                    <div style={{ display: 'flex', textAlign: 'left', gap: '12px' }}>
-                        <EnvironmentOutlined style={{ fontSize: '24px', color: '#000' }} />
+                <div style={{ 
+                    display: 'flex', 
+                    flexWrap: 'wrap', 
+                    justifyContent: 'center', 
+                    /* --- RESPONSIVE GAP --- 
+                       Min: 40px (Mobile) | Preferred: 10% of screen | Max: 100px (Desktop)
+                    */
+                    gap: 'clamp(40px, 10vw, 100px)', 
+                    alignItems: 'flex-start',
+                    width: '100%' 
+                }}>
+                    {/* Address Section */}
+                    <div style={{ display: 'flex', textAlign: 'left', gap: '15px', alignItems: 'flex-start' }}>
+                        <EnvironmentOutlined style={{ fontSize: '15px', color: '#ff5722', marginTop: '6px' }} />
                         <div>
-                            <Text strong style={{ display: 'block', fontSize: '15px', color: '#000', marginBottom: '4px' }}>Address:</Text>
-                            <Text style={{ color: '#000', fontSize: '14px', lineHeight: '1.5' }}>
+                            <Text strong style={{ 
+                                display: 'block', fontSize: '18px', lineHeight: '1', 
+                                color: '#fff', marginBottom: '5px', fontFamily: "'Inter', sans-serif" 
+                            }}>
+                                Address:
+                            </Text>
+                            <Text style={{ color: 'rgba(255,255,255,0.7)', fontSize: '14px', lineHeight: '1.4', display: 'block' }}>
                                 Kasturba Medical College<br />
-                                Tiger Circle Road, Madhav Nagar, Eshwar Nagar<br />
-                                Manipal – 576104, Karnataka, India
+                                Tiger Circle Road, Madhav Nagar<br />
+                                Manipal – 576104
                             </Text>
                         </div>
                     </div>
 
-                    {/* Email */}
-                    <div style={{ display: 'flex', textAlign: 'left', gap: '12px' }}>
-                        <MailOutlined style={{ fontSize: '24px', color: '#000' }} />
+                    {/* Email Section */}
+                    <div style={{ display: 'flex', textAlign: 'left', gap: '15px', alignItems: 'flex-start' }}>
+                        <MailOutlined style={{ fontSize: '15px', color: '#ff5722', marginTop: '6px' }} />
                         <div>
-                            <Text strong style={{ display: 'block', fontSize: '15px', color: '#000', marginBottom: '4px' }}>Email ID's:</Text>
-                            <Text style={{ display: 'block', color: '#000', fontSize: '14px', marginBottom: '2px' }}>
+                            <Text strong style={{ 
+                                display: 'block', fontSize: '18px', lineHeight: '1', 
+                                color: '#fff', marginBottom: '5px', fontFamily: "'Inter', sans-serif" 
+                            }}>
+                                Email ID's:
+                            </Text>
+                            <Text style={{ display: 'block', color: 'rgba(255,255,255,0.7)', fontSize: '14px', marginBottom: '2px' }}>
                                 dpr.mu@manipal.edu
                             </Text>
-                            <Text style={{ display: 'block', color: '#000', fontSize: '14px' }}>
+                            <Text style={{ display: 'block', color: 'rgba(255,255,255,0.7)', fontSize: '14px' }}>
                                 aihealthcare.kmc@manipal.edu
                             </Text>
                         </div>

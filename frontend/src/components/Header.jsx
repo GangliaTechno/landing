@@ -1,169 +1,149 @@
-import { useNavigate } from 'react-router-dom';
-import { Row, Col, Typography, Space, Divider } from 'antd';
-import logo from '../assets/KMCMAHEMANIPAL.png';
-import './Header.css';
+import { Typography } from 'antd';
+// Make sure to import your actual logo image here
+import logo from '/favicon.png'; // Example path, replace with yours if different
 
 const { Title, Text } = Typography;
 
 const Header = () => {
-    const navigate = useNavigate();
-
     return (
-        <header className="header" style={{ background: '#fff', borderBottom: '1px solid #e8e8e8', padding: '25px 0' }}>
-            <div className="container" style={{ width: '100%', padding: '0 0 0 20px' }}>
-                <Row align="middle" justify="start" gutter={[16, 0]} wrap={false}>
-                    {/* Left: Logo Section */}
-                    <Col flex="none">
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer', marginLeft: '-80px' }} onClick={() => navigate('/')}>
-                            <img
-                                src={logo}
-                                alt="Kasturba Medical College Logo"
-                                style={{
-                                    height: '55px',
-                                    width: '55px',
-                                    objectFit: 'contain'
-                                }}
-                            />
-                            <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                                <Title level={4} style={{
-                                    margin: 0,
-                                    lineHeight: '1.2',
-                                    fontFamily: 'Inter, sans-serif',
-                                    fontWeight: '700',
-                                    fontSize: '20px',
-                                    color: '#c62828',
-                                    letterSpacing: '0.3px',
-                                    whiteSpace: 'nowrap'
-                                }}>
-                                    DEPARTMENT OF ARTIFICIAL INTELLIGENCE IN HEALTHCARE
-                                </Title>
-                                <Text style={{
-                                    fontSize: '13px',
-                                    letterSpacing: '1.5px',
-                                    color: '#666',
-                                    fontWeight: '500',
-                                    marginTop: '2px'
-                                }}>
-                                    KASTURBA MEDICAL COLLEGE
-                                </Text>
-                                <Text italic style={{
-                                    fontSize: '11px',
-                                    color: '#999',
-                                    marginTop: '1px'
-                                }}>
-                                    (A constituent unit of MAHE, Manipal)
-                                </Text>
-                            </div>
-                        </div>
-                    </Col>
+        <>
+            {/* --- RESPONSIVE HEADER STYLES --- */}
+            <style>{`
+                /* Default Desktop Styles */
+                .header-container {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 20px 50px;
+                    width: 100%;
+                    max-width: 1400px;
+                    margin: 0 auto;
+                }
 
-                    <Col flex="none" style={{ marginLeft: 'auto' }}>
-                        <Space
-                            size="small"
-                            split={<Divider type="vertical" style={{ height: '40px', borderColor: '#d9d9d9', margin: '0 15px' }} />}
-                            align="center"
-                        >
-                            <div style={{
-                                display: 'flex',
-                                flexDirection: 'column',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                height: '40px'
-                            }}>
-                                <Text style={{
-                                    fontSize: '8px',
-                                    fontWeight: '600',
-                                    color: '#333',
-                                    lineHeight: 1,
-                                    letterSpacing: '0.5px'
-                                }}>
-                                    INSTITUTION OF
-                                </Text>
-                                <div style={{
-                                    background: '#ff6f00',
-                                    color: '#fff',
-                                    padding: '2px 10px',
-                                    fontSize: '10px',
-                                    fontWeight: 'bold',
-                                    marginTop: '2px',
-                                    letterSpacing: '0.5px'
-                                }}>
-                                    EMINENCE
-                                </div>
-                            </div>
+                .header-left {
+                    display: flex;
+                    align-items: center;
+                    gap: 20px;
+                    text-align: left;
+                }
 
-                            <div style={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                height: '40px'
-                            }}>
-                                <div style={{
-                                    border: '2px solid #333',
-                                    borderRadius: '50%',
-                                    width: '40px',
-                                    height: '40px',
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    alignItems: 'center',
-                                    justifyContent: 'center'
-                                }}>
-                                    <Text style={{
-                                        fontSize: '8px',
-                                        fontWeight: 'bold',
-                                        lineHeight: 1,
-                                        color: '#333'
-                                    }}>
-                                        NAAC
-                                    </Text>
-                                    <Text style={{
-                                        fontSize: '14px',
-                                        fontWeight: 'bold',
-                                        lineHeight: 1.1,
-                                        color: '#333',
-                                        margin: '2px 0'
-                                    }}>
-                                        A++
-                                    </Text>
-                                    <Text style={{
-                                        fontSize: '6px',
-                                        color: '#666',
-                                        lineHeight: 1
-                                    }}>
-                                        GRADE
-                                    </Text>
-                                </div>
-                            </div>
+                .header-right {
+                    display: flex;
+                    align-items: center;
+                    gap: 30px;
+                }
 
-                            <div style={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                height: '40px'
-                            }}>
-                                <Text style={{
-                                    fontSize: '18px',
-                                    fontWeight: 'bold',
-                                    color: '#333',
-                                    lineHeight: 1
-                                }}>
-                                    NIRF
-                                </Text>
-                                <Text style={{
-                                    fontSize: '18px',
-                                    fontWeight: 'bold',
-                                    color: '#ff6f00',
-                                    marginLeft: '4px',
-                                    lineHeight: 1
-                                }}>
-                                    #3
-                                </Text>
-                            </div>
-                        </Space>
-                    </Col>
-                </Row>
+                .logo-img {
+                    height: 80px; /* Adjust based on your logo aspect ratio */
+                    width: auto;
+                }
+
+                /* Mobile/Tablet Styles (Triggered when screen is smaller than 992px) */
+                @media (max-width: 992px) {
+                    .header-container {
+                        flex-direction: column; /* Stack items vertically */
+                        gap: 25px;
+                        padding: 20px;
+                    }
+
+                    .header-left {
+                        flex-direction: column; /* Stack Logo and Text */
+                        text-align: center;
+                        gap: 15px;
+                    }
+
+                    .header-right {
+                        justify-content: center;
+                        flex-wrap: wrap; /* Allow badges to wrap on very small screens */
+                        gap: 20px;
+                    }
+
+                    .logo-img {
+                        height: 70px; /* Slightly smaller logo on mobile */
+                    }
+                }
+            `}</style>
+
+            <div className="header-container">
+                {/* --- LEFT SECTION: Logo & Department Name --- */}
+                <div className="header-left">
+                    {/* Replace src with your actual logo import */}
+                    <img 
+                        src={logo} 
+                        alt="MAHE Logo" 
+                        className="logo-img"
+                    />
+                    
+                    <div>
+                        <Title level={4} style={{ 
+                            color: '#fff', 
+                            margin: 0, 
+                            fontWeight: '800', 
+                            textTransform: 'uppercase',
+                            fontSize: 'clamp(14px, 2vw, 18px)', // Responsive Font Size
+                            fontFamily: "'Inter', sans-serif",
+                            lineHeight: '1.2'
+                        }}>
+                            Department of Artificial Intelligence in Healthcare
+                        </Title>
+                        
+                        <Text style={{ 
+                            color: 'rgba(255,255,255,0.9)', 
+                            display: 'block', 
+                            fontSize: 'clamp(12px, 1.5vw, 14px)', 
+                            marginTop: '4px', 
+                            fontWeight: '600' 
+                        }}>
+                            KASTURBA MEDICAL COLLEGE
+                        </Text>
+                        
+                        <Text style={{ 
+                            color: 'rgba(255,255,255,0.6)', 
+                            display: 'block', 
+                            fontSize: '12px', 
+                            marginTop: '2px',
+                            fontStyle: 'italic'
+                        }}>
+                            (A constituent unit of MAHE, Manipal)
+                        </Text>
+                    </div>
+                </div>
+
+                {/* --- RIGHT SECTION: Badges (NIRF, NAAC, Eminence) --- */}
+                <div className="header-right">
+                    {/* Badge 1: Institution of Eminence */}
+                    <div style={{ textAlign: 'center' }}>
+                        <Text style={{ 
+                            display: 'block', color: '#ff5722', fontWeight: '800', fontSize: '12px', lineHeight: '1' 
+                        }}>
+                            INSTITUTION OF
+                        </Text>
+                        <Text style={{ 
+                            display: 'block', color: '#fff', fontWeight: '700', fontSize: '14px', letterSpacing: '1px' 
+                        }}>
+                            EMINENCE
+                        </Text>
+                    </div>
+
+                    {/* Badge 2: NAAC */}
+                    <div style={{ 
+                        border: '1px solid rgba(255,255,255,0.3)', 
+                        padding: '5px 10px', 
+                        borderRadius: '50px',
+                        textAlign: 'center'
+                    }}>
+                        <Text style={{ color: '#fff', fontSize: '12px', fontWeight: '600' }}>NAAC </Text>
+                        <Text style={{ color: '#fff', fontSize: '14px', fontWeight: '800' }}>A++</Text>
+                    </div>
+
+                    {/* Badge 3: NIRF */}
+                    <div style={{ textAlign: 'right' }}>
+                        <Text style={{ color: '#fff', fontSize: '14px', fontWeight: '800', marginRight: '5px' }}>NIRF</Text>
+                        <Text style={{ color: '#ff5722', fontSize: '18px', fontWeight: '900' }}>#3</Text>
+                    </div>
+                </div>
             </div>
-        </header>
+        </>
     );
 };
 
